@@ -1,0 +1,36 @@
+/node_modules
+/public/hot
+/public/storage
+/storage/*.key
+
+/vendor
+#.env
+#.env.backup
+.phpunit.result.cache
+docker-compose.override.yml
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+/.idea
+/.vscode
+
+/storage/framework/
+/storage/logs/
+/bootstrap/cache/
+/vendor/
+/node_modules/
+
+#.env.testing
+.php_cs.cache
+.phpstorm.meta.php
+
+# Ignoring Folders Related to Project's Compiled Code
+
+# Ignoring Various Files & Directories That May Contain Sensitive Information or Local Configurations
+.DS_Store
+Thumbs.db
+/.config
+/_ide_helper.php
+/_ide_helper_models.php
+/.phpunit.result.cache
