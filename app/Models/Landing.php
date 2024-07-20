@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Landing extends Model
 {
     use HasFactory;
+    protected $table = "landing";
+
     protected $fillable = [
         'id',
         'status',
@@ -79,8 +81,13 @@ class Landing extends Model
         'whatsapp',
         'telegram',
         'email',
-        'created_at',
-        'updated_at',
-    ];
+    ]; 
 
+    /**
+     * Get the user that owns the blog post.
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

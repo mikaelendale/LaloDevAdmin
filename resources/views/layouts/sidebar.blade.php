@@ -36,7 +36,7 @@
                 <li class="menu-title" key="t-backend">Lalo Related </li>
                 <li>
                     <a href="/landing" class="waves-effect">
-                        <i class="bx bx-user-plus"></i>
+                        <i class="bx bx-web"></i>
                         <span key="t-blog"> Landing Page </span>
                     </a> 
                 </li>
