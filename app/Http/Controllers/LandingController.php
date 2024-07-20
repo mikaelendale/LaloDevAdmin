@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Userpage;
+use App\Models\Landing;
 use Illuminate\Http\Request;
 
-class UserpageController extends Controller
+class LandingController extends Controller
 {
     public function index()
     {
-        $userpages = Userpage::find(1); // Fetch all user pages
+        $userpages = Landing::find(1); // Fetch all user pages
         return view('userpage.userpage', compact('userpages'));
     }
     public function edit($id)
     {
-        $userpage = Userpage::find($id);
+        $userpage = Landing::find($id);
 
         if (!$userpage) {
             return redirect()->route('userpages')->with('error', 'Userpage not found.');
@@ -34,7 +34,7 @@ class UserpageController extends Controller
         ]);
 
         // Find the Userpage by id
-        $userpage = Userpage::find($id);
+        $userpage = Landing::find($id);
 
         if (!$userpage) {
             return redirect()->route('userpages')->with('error', 'User Page not found.');
@@ -46,5 +46,4 @@ class UserpageController extends Controller
         // Redirect with success message
         return redirect()->route('userpages')->with('success', 'User Page updated successfully.');
     }
-
 }

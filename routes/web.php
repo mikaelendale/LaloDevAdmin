@@ -57,10 +57,18 @@ Route::middleware(['auth'])->group(function () {
 });
 //user
 Route::middleware(['auth'])->group(function () {
+    Route::get('/landing', [LandingController::class, 'index'])->name('userpages');
+    Route::get('landing/{id}/edit', [LandingController::class, 'edit'])->name('userpages.edit');
+    Route::put('landing/{id}', [LandingController::class, 'update'])->name('userpages.update');
+});
+
+
+Route::middleware(['auth'])->group(function () {
     Route::get('/userspage', [UserpageController::class, 'index'])->name('userpages');
     Route::get('userpages/{id}/edit', [UserpageController::class, 'edit'])->name('userpages.edit');
     Route::put('userpages/{id}', [UserpageController::class, 'update'])->name('userpages.update');
 });
+
 //sites controlling
 Route::middleware(['auth'])->group(function () {
     Route::get('/community/{id}/config', [SitestatController::class, 'community_config'])->name('community.community_config');
