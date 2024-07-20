@@ -104,7 +104,7 @@
                                         </div>
 
                                         <div class="mt-4">
-                                            <form method="POST" class="form-horizontal" action="{{ route('register') }}" enctype="multipart/form-data">
+                                            {{-- <form method="POST" class="form-horizontal" action="{{ route('register') }}" enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="mb-3">
                                                     <label for="useremail" class="form-label">Email <span class="text-danger">*</span></label>
@@ -218,7 +218,7 @@
                                             <div class="mt-3 text-center">
                                                 <p>Already have an account ? <a href="{{ url('login') }}"
                                                         class="fw-medium text-primary"> Login</a> </p>
-                                            </div>
+                                            </div> --}}
 
                                         </div>
                                     </div>

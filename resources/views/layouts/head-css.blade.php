@@ -1,4 +1,5 @@
 @yield('css')
+    <link rel="shortcut icon" href="{{ URL::asset('build/images/icon.png') }}">
 
 <!-- Bootstrap Css -->
 <link href="{{ URL::asset('build/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" />
