@@ -28,7 +28,7 @@
                 </ul>
             </div>
         @endif
-        <form action="{{ route('blogs.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('events.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row">
                 <div class="col-xl-12">
@@ -124,8 +124,8 @@
                             <div>
                                 <button type="submit"
                                     class="btn btn-outline-success waves-effect btn-label waves-light"><i
-                                        class="bx bx-check-double label-icon"></i>Create the blogpost</button>
-                                <a href="/blogs/index"><button type="button"
+                                        class="bx bx-check-double label-icon"></i>Create the Event</button>
+                                <a href="/events/index"><button type="button"
                                         class="btn btn-outline-danger waves-effect btn-label waves-light"><i
                                             class="bx bx-trash label-icon"></i> Cancel</button></a>
                             </div>

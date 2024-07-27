@@ -3,11 +3,11 @@
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\EventsController;
+use App\Http\Controllers\LandingController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\SitestatController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserpageController;
-use App\Http\Controllers\LandingController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -63,7 +63,6 @@ Route::middleware(['auth'])->group(function () {
     Route::put('landing/{id}', [LandingController::class, 'update'])->name('userpages.update');
 });
 
-
 Route::middleware(['auth'])->group(function () {
     Route::get('/userspage', [UserpageController::class, 'index'])->name('userpages');
     Route::get('userpages/{id}/edit', [UserpageController::class, 'edit'])->name('userpages.edit');
@@ -90,11 +89,17 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/blogs/{blog}', [BlogController::class, 'update'])->name('blogs.update');
     Route::delete('/blogs/{blog}', [BlogController::class, 'destroy'])->name('blogs.destroy');
 });
-//events
+
 Route::middleware(['auth'])->group(function () {
     Route::get('/events/create', [EventsController::class, 'create'])->name('events.create');
     Route::get('/events', [EventsController::class, 'index'])->name('events.index');
-    Route::get('/events/detail/{events}', [EventsController::class, 'eventdetail'])->name('events.detail');
+    Route::get('/events/index', [EventsController::class, 'index'])->name('events.index');
+    Route::post('/events', [EventsController::class, 'store'])->name('events.store');
+    Route::get('/events/{events}/edit', [EventsController::class, 'edit'])->name('events.edit');
+    Route::get('/events/detail/{id}', [EventsController::class, 'detail'])->name('events.detail');
+    Route::delete('/events/{events}', [EventsController::class, 'destroy'])->name('events.destroy');
+    Route::put('/events/{events}', [EventsController::class, 'update'])->name('events.update');
+    Route::delete('/events/{events}', [EventsController::class, 'destroy'])->name('events.destroy');
 });
 // pages
 Route::middleware(['auth'])->group(function () {

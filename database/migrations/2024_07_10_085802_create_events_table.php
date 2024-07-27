@@ -23,6 +23,7 @@ return new class extends Migration
             $table->timestamp('published_at')->nullable();
             $table->string('seo_title')->nullable();
             $table->text('meta_description')->nullable(); 
+            $table->timestamps();
         });
     }
 

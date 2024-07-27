@@ -43,6 +43,13 @@ return [
             'visibility' => 'public',
         ],
 
+        'event_images' => [
+            'driver' => 'local',
+            'root' => storage_path('../../event_images'), // Adjust the path to your external directory
+            'url' => env('APP_URL') . '/event_images',
+            'visibility' => 'public',
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
@@ -77,6 +84,7 @@ return [
     'links' => [
         public_path('storage') => storage_path('app/public'),
         public_path('blog_images') => storage_path('../../blog_images'),
+        public_path('event_images') => storage_path('../../event_images'),
     ],
 
 ];
