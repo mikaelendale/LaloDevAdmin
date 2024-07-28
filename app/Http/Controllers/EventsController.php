@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Events;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
@@ -15,32 +16,19 @@ class EventsController extends Controller
     }
     public function index()
     {
-        $events = Events::all(); // Fetch all Event posts
-        return view('events.index', compact('events'));
+        $events = Events::all(); // Fetch all Event posts 
         // Count users with community_join_stat = 'on'
-        $count = Events::where('', 'on')->count();
-
-        $joined = User::where('community_join_stat', 'on')->get();
-
-        // Count users who joined today
-        $today = User::where('community_join_stat', 'on')
-            ->whereBetween('created_at', [Carbon::now()->startOfDay(), Carbon::now()->endOfDay()])
-            ->count();
-
+        $count = Events::where('status', 'published')->count();
         // Count users who joined this week
-        $weeklyCount = User::where('community_join_stat', 'on')
+        $weeklyCount = Events::where('status', 'published')
             ->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])
             ->count();
 
         // Count users who joined this month
-        $monthlyCount = User::where('community_join_stat', 'on')
+        $monthlyCount = Events::where('status', 'published')
             ->whereBetween('created_at', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])
-            ->count();
-
-        // Fetch the community_site_status from the sites table
-        $community_stat = Sites::find(1)->community_site_status;
-
-        return view('community.community', compact('count', 'joined', 'today', 'weeklyCount', 'monthlyCount', 'community_stat'));
+            ->count(); 
+        return view('events.index', compact('events', 'count', 'weeklyCount', 'monthlyCount'));
     }
 
     public function store(Request $request)

@@ -51,13 +51,13 @@
                             <div class="col-sm-6">
                                 <div>
                                     <p class="text-muted mb-2">Available Events</p>
-                                    <h5>0</h5>
+                                    <h5>{{$count}}</h5>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="text-sm-end mt-4 mt-sm-0">
                                     <p class="text-muted mb-2">Since last month</p>
-                                    <h5><span class="badge bg-success ms-1 align-bottom">2</span></h5>
+                                    <h5><span class="badge bg-success ms-1 align-bottom">{{$monthlyCount}}</span></h5>
 
                                 </div>
                             </div>
