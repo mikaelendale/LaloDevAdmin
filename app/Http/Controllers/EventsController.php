@@ -14,9 +14,15 @@ class EventsController extends Controller
     {
         return view('events.create');
     }
-    public function index()
+    public function all()
     {
-        $events = Events::all(); // Fetch all Event posts 
+        $events = Events::all(); // Fetch all blog posts
+        return view('events.all', compact('events'));
+    }
+    public function index()
+    { 
+        $events = Events::orderBy('created_at', 'desc')->take(6)->get();
+
         // Count users with community_join_stat = 'on'
         $count = Events::where('status', 'published')->count();
         // Count users who joined this week
@@ -110,11 +116,11 @@ class EventsController extends Controller
         if ($request->hasFile('featured_image')) {
             // Delete the old image if it exists
             if ($events->featured_image) {
-                Storage::disk('events_images')->delete($events->featured_image);
+                Storage::disk('event_images')->delete($events->featured_image);
             }
 
             // Store the uploaded file in the 'external_storage' disk
-            $path = $request->file('featured_image')->store('featured_images', 'events_images');
+            $path = $request->file('featured_image')->store('featured_images', 'event_images');
 
             // Save the path to the database
             $validated['featured_image'] = $path;

@@ -35,10 +35,15 @@
 
                 <li class="menu-title" key="t-backend">Lalo Related </li>
                 <li>
-                    <a href="/landing" class="waves-effect">
-                        <i class="bx bx-web"></i>
-                        <span key="t-blog"> Landing Page </span>
-                    </a> 
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="bx bx-key"></i>
+                        <span class="badge rounded-pill bg-info float-end" key="t-hot"> Modern </span>
+                        <span key="t-landing"> Landing </span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="/landing" key="t-Top landing">Status </a></li>
+                        <li><a href="/landing/config" key="t-View landing ">Configure</a></li>
+                    </ul>
                 </li>
                 <li>
                     <a href="/userspage" class="waves-effect">
@@ -77,8 +82,13 @@
                         </li>
 
                         <li>
+                            <a href="/events/all" key="t-horizontal">All</a>
+                        </li>
+                        
+                        <li>
                             <a href="/events/create" key="t-horizontal">Add new </a>
-                        </li> 
+                        </li>
+
 
                     </ul>
                 </li>
