@@ -1,6 +1,7 @@
 <?php
 // app/Http/Controllers/EventsController.php
-namespace App\Http\Controllers; 
+namespace App\Http\Controllers;
+
 use App\Models\Events;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -11,6 +12,35 @@ class EventsController extends Controller
     public function create()
     {
         return view('events.create');
+    }
+    public function index()
+    {
+        $events = Events::all(); // Fetch all Event posts
+        return view('events.index', compact('events'));
+        // Count users with community_join_stat = 'on'
+        $count = Events::where('', 'on')->count();
+
+        $joined = User::where('community_join_stat', 'on')->get();
+
+        // Count users who joined today
+        $today = User::where('community_join_stat', 'on')
+            ->whereBetween('created_at', [Carbon::now()->startOfDay(), Carbon::now()->endOfDay()])
+            ->count();
+
+        // Count users who joined this week
+        $weeklyCount = User::where('community_join_stat', 'on')
+            ->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])
+            ->count();
+
+        // Count users who joined this month
+        $monthlyCount = User::where('community_join_stat', 'on')
+            ->whereBetween('created_at', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])
+            ->count();
+
+        // Fetch the community_site_status from the sites table
+        $community_stat = Sites::find(1)->community_site_status;
+
+        return view('community.community', compact('count', 'joined', 'today', 'weeklyCount', 'monthlyCount', 'community_stat'));
     }
 
     public function store(Request $request)
@@ -54,11 +84,6 @@ class EventsController extends Controller
         // Redirect to the Event index with a success message
         return redirect()->route('events.index')->with('success', 'Event created successfully.');
     }
-    public function index()
-    {
-        $events = Events::all(); // Fetch all Event posts
-        return view('events.index', compact('events'));
-    } 
     public function edit($id)
     {
         $events = Events::findOrFail($id); // Find the Event post by ID
@@ -127,4 +152,3 @@ class EventsController extends Controller
     }
 
 }
-
