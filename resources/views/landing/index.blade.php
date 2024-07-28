@@ -105,25 +105,64 @@
     </div>
     <!-- end row -->
 
-    <div class="row"> 
+    <div class="row">
         <div class="col-xl-12">
             <div class="row">
+
+                <div class="col-sm-3">
+                    <a href="">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="avatar-xs me-3">
+                                        <span
+                                            class="avatar-title rounded-circle bg-primary-subtle text-primary font-size-18">
+                                            <i class="bx bx-navigation"></i>
+                                        </span>
+                                    </div>
+                                    <h5 class="font-size-14 mb-0">Nav Bar </h5>
+                                </div>
+                                <div class="text-muted mt-4">
+                                    <h4>Web Navigation </h4>
+                                    <div class="d-flex">
+                                        @if ($landing->status == 'on')
+                                            <span class="badge badge-soft-success font-size-12">on</span>
+                                        @else
+                                            <span class="badge badge-soft-success font-size-12">off</span>
+                                        @endif
+                                        <span class="ms-2 text-truncate">current moment</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+
                 <div class="col-sm-3">
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex align-items-center mb-3">
                                 <div class="avatar-xs me-3">
                                     <span class="avatar-title rounded-circle bg-primary-subtle text-primary font-size-18">
-                                        <i class="bx bx-copy-alt"></i>
+                                        <i class="bx bx-map-pin"></i>
                                     </span>
                                 </div>
-                                <h5 class="font-size-14 mb-0">Orders</h5>
+                                <h5 class="font-size-14 mb-0">Register</h5>
                             </div>
                             <div class="text-muted mt-4">
-                                <h4>1,452 <i class="mdi mdi-chevron-up ms-1 text-success"></i></h4>
+                                <h4>User registration</h4>
                                 <div class="d-flex">
-                                    <span class="badge badge-soft-success font-size-12"> + 0.2% </span> <span
-                                        class="ms-2 text-truncate">From previous period</span>
+                                    @if ($landing->register == 'on')
+                                    <span class="badge badge-soft-success font-size-12"> {{ $landing->register }}</span>
+                                            @else
+                                    <span class="badge badge-soft-success font-size-12"> {{ $landing->register }}</span>
+                                            @endif  
+                                    <span class="ms-2 text-truncate">Currently
+                                        <script>
+                                            document.write(new Date().getFullYear())
+                                        </script>
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -136,39 +175,17 @@
                             <div class="d-flex align-items-center mb-3">
                                 <div class="avatar-xs me-3">
                                     <span class="avatar-title rounded-circle bg-primary-subtle text-primary font-size-18">
-                                        <i class="bx bx-archive-in"></i>
+                                        <i class="bx bx-mail-send"></i>
                                     </span>
                                 </div>
-                                <h5 class="font-size-14 mb-0">Revenue</h5>
+                                <h5 class="font-size-14 mb-0">CTA section</h5>
                             </div>
                             <div class="text-muted mt-4">
-                                <h4>$ 28,452 <i class="mdi mdi-chevron-up ms-1 text-success"></i></h4>
-                                <div class="d-flex">
-                                    <span class="badge badge-soft-success font-size-12"> + 0.2% </span> <span
-                                        class="ms-2 text-truncate">From previous period</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="avatar-xs me-3">
-                                    <span class="avatar-title rounded-circle bg-primary-subtle text-primary font-size-18">
-                                        <i class="bx bx-purchase-tag-alt"></i>
-                                    </span>
-                                </div>
-                                <h5 class="font-size-14 mb-0">Average Price</h5>
-                            </div>
-                            <div class="text-muted mt-4">
-                                <h4>$ 16.2 <i class="mdi mdi-chevron-up ms-1 text-success"></i></h4>
+                                <h4>Call to Action</h4>
 
                                 <div class="d-flex">
-                                    <span class="badge badge-soft-warning font-size-12"> 0% </span> <span
-                                        class="ms-2 text-truncate">From previous period</span>
+                                    <span class="badge badge-soft-warning font-size-12"> {{ $landing->cta_section }} </span>
+                                    <span class="ms-2 text-truncate">From previous period</span>
                                 </div>
                             </div>
                         </div>
