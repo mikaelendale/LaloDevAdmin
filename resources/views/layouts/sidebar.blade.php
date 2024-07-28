@@ -78,11 +78,7 @@
 
                         <li>
                             <a href="/events/create" key="t-horizontal">Add new </a>
-                        </li>
-
-                        <li>
-                            <a href="/events/manage" key="t-horizontal">Manage</a>
-                        </li>
+                        </li> 
 
                     </ul>
                 </li>
