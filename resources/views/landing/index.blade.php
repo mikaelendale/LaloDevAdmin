@@ -20,7 +20,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @else
-        <a href="{{ route('landing.config', $landing->id) }}"1>
+        <a href="{{ route('landing.config', $landing->id) }}">
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                 <i class="bx bx-block me-2"></i>
                 Home page is offline
@@ -67,17 +67,20 @@
                                         <div>
                                             <p class="text-muted text-truncate mb-2">Auth Access</p>
                                             @if ($landing->login == 'on')
-                                                <h5 class="badge badge-soft-success mb-0">{{ $landing->status }}</h5>
+                                                <h5 class="badge badge-soft-success mb-0">{{ $landing->login }}</h5>
                                             @else
-                                                <h5 class="badge badge-soft-danger mb-0">{{ $landing->status }}</h5>
+                                                <h5 class="badge badge-soft-danger mb-0">{{ $landing->login }}</h5>
                                             @endif
                                         </div>
                                     </div>
                                     <div class="col-4">
                                         <div>
-                                            <p class="text-muted text-truncate mb-2">Clients</p>
-                                            <h5 class="mb-0">18</h5>
-
+                                            <p class="text-muted text-truncate mb-2">Footer Section</p>
+                                            @if ($landing->footer == 'on')
+                                                <h5 class="badge badge-soft-success mb-0">{{ $landing->footer }}</h5>
+                                            @else
+                                                <h5 class="badge badge-soft-danger mb-0">{{ $landing->footer }}</h5>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -87,15 +90,10 @@
                         <div class="col-lg-4 d-none d-lg-block">
                             <div class="clearfix mt-4 mt-lg-0">
                                 <div class="dropdown float-end">
-                                    <button class="btn btn-primary" type="button" data-bs-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">
+                                    <a href="{{ route('landing.config', $landing->id) }}" class="btn btn-primary"
+                                        type="button">
                                         <i class="bx bxs-cog align-middle me-1"></i> Setting
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-end">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <a class="dropdown-item" href="#">Something else</a>
-                                    </div>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -109,22 +107,43 @@
 
     <div class="row">
         <div class="col-xl-4">
-            <div class="card bg-primary-subtle">
-                <div>
+            <div class="card overflow-hidden">
+                <div class="bg-primary-subtle">
                     <div class="row">
                         <div class="col-7">
                             <div class="text-primary p-3">
                                 <h5 class="text-primary">Welcome Back !</h5>
-                                <p>Skote Saas Dashboard</p>
-
-                                <ul class="ps-3 mb-0">
-                                    <li class="py-1">7 + Layouts</li>
-                                    <li class="py-1">Multiple apps</li>
-                                </ul>
+                                <p>Skote Dashboard</p>
                             </div>
                         </div>
                         <div class="col-5 align-self-end">
-                            <img src="{{ URL::asset('build/images/profile-img.png') }}" alt="" class="img-fluid">
+                            <img src="http://127.0.0.1:8080/build/images/profile-img.png" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body pt-0">
+                    <div class="row"> 
+                        <div class="col-sm-8">
+                            <div class="pt-4">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <h5 class="font-size-15">125</h5>
+                                        <p class="text-muted mb-0">Projects</p>
+                                    </div>
+                                    <div class="col-4">
+                                        <h5 class="font-size-15">$1245</h5>
+                                        <p class="text-muted mb-0">Revenue</p>
+                                    </div>
+                                    <div class="col-4">
+                                        <h5 class="font-size-15">$1245</h5>
+                                        <p class="text-muted mb-0">Revenue</p>
+                                    </div>
+                                </div>
+                                <div class="mt-4">
+                                    <a href="" class="btn btn-primary waves-effect waves-light btn-sm">View Profile
+                                        <i class="mdi mdi-arrow-right ms-1"></i></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
