@@ -105,53 +105,10 @@
     </div>
     <!-- end row -->
 
-    <div class="row">
-        <div class="col-xl-4">
-            <div class="card overflow-hidden">
-                <div class="bg-primary-subtle">
-                    <div class="row">
-                        <div class="col-7">
-                            <div class="text-primary p-3">
-                                <h5 class="text-primary">Welcome Back !</h5>
-                                <p>Skote Dashboard</p>
-                            </div>
-                        </div>
-                        <div class="col-5 align-self-end">
-                            <img src="http://127.0.0.1:8080/build/images/profile-img.png" alt="" class="img-fluid">
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body pt-0">
-                    <div class="row"> 
-                        <div class="col-sm-8">
-                            <div class="pt-4">
-                                <div class="row">
-                                    <div class="col-4">
-                                        <h5 class="font-size-15">125</h5>
-                                        <p class="text-muted mb-0">Projects</p>
-                                    </div>
-                                    <div class="col-4">
-                                        <h5 class="font-size-15">$1245</h5>
-                                        <p class="text-muted mb-0">Revenue</p>
-                                    </div>
-                                    <div class="col-4">
-                                        <h5 class="font-size-15">$1245</h5>
-                                        <p class="text-muted mb-0">Revenue</p>
-                                    </div>
-                                </div>
-                                <div class="mt-4">
-                                    <a href="" class="btn btn-primary waves-effect waves-light btn-sm">View Profile
-                                        <i class="mdi mdi-arrow-right ms-1"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-8">
+    <div class="row"> 
+        <div class="col-xl-12">
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-sm-3">
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex align-items-center mb-3">
@@ -173,7 +130,7 @@
                     </div>
                 </div>
 
-                <div class="col-sm-4">
+                <div class="col-sm-3">
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex align-items-center mb-3">
@@ -195,7 +152,30 @@
                     </div>
                 </div>
 
-                <div class="col-sm-4">
+                <div class="col-sm-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="avatar-xs me-3">
+                                    <span class="avatar-title rounded-circle bg-primary-subtle text-primary font-size-18">
+                                        <i class="bx bx-purchase-tag-alt"></i>
+                                    </span>
+                                </div>
+                                <h5 class="font-size-14 mb-0">Average Price</h5>
+                            </div>
+                            <div class="text-muted mt-4">
+                                <h4>$ 16.2 <i class="mdi mdi-chevron-up ms-1 text-success"></i></h4>
+
+                                <div class="d-flex">
+                                    <span class="badge badge-soft-warning font-size-12"> 0% </span> <span
+                                        class="ms-2 text-truncate">From previous period</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex align-items-center mb-3">
