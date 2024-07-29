@@ -128,7 +128,7 @@
                                         @if ($landing->status == 'on')
                                             <span class="badge badge-soft-success font-size-12">on</span>
                                         @else
-                                            <span class="badge badge-soft-success font-size-12">off</span>
+                                            <span class="badge badge-soft-danger font-size-12">off</span>
                                         @endif
                                         <span class="ms-2 text-truncate">current moment</span>
                                     </div>
@@ -154,10 +154,10 @@
                                 <h4>User registration</h4>
                                 <div class="d-flex">
                                     @if ($landing->register == 'on')
-                                    <span class="badge badge-soft-success font-size-12"> {{ $landing->register }}</span>
-                                            @else
-                                    <span class="badge badge-soft-success font-size-12"> {{ $landing->register }}</span>
-                                            @endif  
+                                        <span class="badge badge-soft-success font-size-12"> {{ $landing->register }}</span>
+                                    @else
+                                        <span class="badge badge-soft-danger font-size-12"> {{ $landing->register }}</span>
+                                    @endif
                                     <span class="ms-2 text-truncate">Currently
                                         <script>
                                             document.write(new Date().getFullYear())
@@ -184,7 +184,13 @@
                                 <h4>Call to Action</h4>
 
                                 <div class="d-flex">
-                                    <span class="badge badge-soft-warning font-size-12"> {{ $landing->cta_section }} </span>
+                                    @if ($landing->cta_section == 'on')
+                                        <span class="badge badge-soft-success font-size-12">
+                                            {{ $landing->cta_section }}</span>
+                                    @else
+                                        <span class="badge badge-soft-danger font-size-12">
+                                            {{ $landing->cta_section }}</span>
+                                    @endif
                                     <span class="ms-2 text-truncate">From previous period</span>
                                 </div>
                             </div>
@@ -198,17 +204,23 @@
                             <div class="d-flex align-items-center mb-3">
                                 <div class="avatar-xs me-3">
                                     <span class="avatar-title rounded-circle bg-primary-subtle text-primary font-size-18">
-                                        <i class="bx bx-purchase-tag-alt"></i>
+                                        <i class="bx bx-question-mark"></i>
                                     </span>
                                 </div>
-                                <h5 class="font-size-14 mb-0">Average Price</h5>
+                                <h5 class="font-size-14 mb-0">FAQ</h5>
                             </div>
                             <div class="text-muted mt-4">
-                                <h4>$ 16.2 <i class="mdi mdi-chevron-up ms-1 text-success"></i></h4>
+                                <h4>Asked questions</h4>
 
                                 <div class="d-flex">
-                                    <span class="badge badge-soft-warning font-size-12"> 0% </span> <span
-                                        class="ms-2 text-truncate">From previous period</span>
+                                    @if ($landing->faq == 'on')
+                                        <span class="badge badge-soft-success font-size-12">
+                                            {{ $landing->faq }}</span>
+                                    @else
+                                        <span class="badge badge-soft-danger font-size-12">
+                                            {{ $landing->faq }}</span>
+                                    @endif <span class="ms-2 text-truncate">From previous
+                                        period</span>
                                 </div>
                             </div>
                         </div>
@@ -263,7 +275,7 @@
                         </div>
 
                         <div class="col-lg-8">
-                            <div id="line-chart" data-colors='["--bs-primary"]' class="apex-charts" dir="ltr">
+                            <div id="line-chart" data-colors='["--bs-danger"]' class="apex-charts" dir="ltr">
                             </div>
                         </div>
                     </div>
