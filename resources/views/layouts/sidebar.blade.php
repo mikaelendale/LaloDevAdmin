@@ -41,8 +41,7 @@
                         <span key="t-landing"> Landing </span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="/landing" key="t-Top landing">Status </a></li>
-                        <li><a href="/landing/config" key="t-View landing ">Configure</a></li>
+                        <li><a href="/landing" key="t-Top landing">Status </a></li> 
                     </ul>
                 </li>
                 <li>

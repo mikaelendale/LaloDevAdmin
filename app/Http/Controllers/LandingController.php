@@ -14,9 +14,9 @@ class LandingController extends Controller
     }  
     public function config($id)
     {
-        $userpage = Landing::find($id);
+        $landing = Landing::find($id);
 
-        if (!$userpage) {
+        if (!$landing) {
             return redirect()->route('landing')->with('error', 'landing not found.');
         }
 
