@@ -674,7 +674,7 @@
                                                                     <div class="form-group mb-3">
                                                                         <label for="input-date1">Legal 1</label>
                                                                         <input name="legal_1" id="input-date1"
-                                                                            class="form-control input-mask">
+                                                                            class="form-control input-mask"value="{{ old('slug', $landing->legal_1) }}">
                                                                         <span class="text-muted">e.g "web
                                                                             development"</span>
                                                                     </div>
@@ -683,7 +683,7 @@
                                                                     <div class="mb-3">
                                                                         <label for="input-date1">Legal 1 link</label>
                                                                         <input name="legal_1_link" id="input-date1"
-                                                                            class="form-control input-mask">
+                                                                            class="form-control input-mask"value="{{ old('slug', $landing->legal_1_link) }}">
                                                                         <span class="text-muted">e.g "/web or
                                                                             https://...."</span>
                                                                     </div>
@@ -694,7 +694,7 @@
                                                                     <div class="form-group mb-3">
                                                                         <label for="input-date1">Legal 2</label>
                                                                         <input name="legal_2" id="input-date1"
-                                                                            class="form-control input-mask">
+                                                                            class="form-control input-mask"value="{{ old('slug', $landing->legal_2) }}">
                                                                         <span class="text-muted">e.g "web
                                                                             development"</span>
                                                                     </div>
@@ -703,7 +703,7 @@
                                                                     <div class="mb-3">
                                                                         <label for="input-date1">Legal 2 link</label>
                                                                         <input name="legal_2_link" id="input-date1"
-                                                                            class="form-control input-mask">
+                                                                            class="form-control input-mask"value="{{ old('slug', $landing->legal_2_link) }}">
                                                                         <span class="text-muted">e.g "/web or
                                                                             https://...."</span>
                                                                     </div>
@@ -714,7 +714,7 @@
                                                                     <div class="form-group mb-3">
                                                                         <label for="input-date1">Legal 3</label>
                                                                         <input name="legal_3" id="input-date1"
-                                                                            class="form-control input-mask">
+                                                                            class="form-control input-mask"value="{{ old('slug', $landing->legal_3) }}">
                                                                         <span class="text-muted">e.g "web
                                                                             development"</span>
                                                                     </div>
@@ -723,7 +723,7 @@
                                                                     <div class="mb-3">
                                                                         <label for="input-date1">Legal 3 link</label>
                                                                         <input name="legal_3_link" id="input-date1"
-                                                                            class="form-control input-mask">
+                                                                            class="form-control input-mask"value="{{ old('slug', $landing->legal_3_link) }}">
                                                                         <span class="text-muted">e.g "/web or
                                                                             https://...."</span>
                                                                     </div>
@@ -759,8 +759,64 @@
                                                         <input type="text" class="form-control" name="instagram"
                                                             value="{{ old('slug', $landing->instagram) }}">
                                                     </div>
-                                                    
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" id="option-endDate">Linkedin</span>
+                                                        <input type="text" class="form-control" name="linkedin"
+                                                            value="{{ old('slug', $landing->linkedin) }}">
                                                     </div>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" id="option-endDate">Youtube</span>
+                                                        <input type="text" class="form-control" name="youtube"
+                                                            value="{{ old('slug', $landing->youtube) }}">
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text"
+                                                            id="option-endDate">Pinterest</span>
+                                                        <input type="text" class="form-control" name="pinterest"
+                                                            value="{{ old('slug', $landing->pinterest) }}">
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" id="option-endDate">Google</span>
+                                                        <input type="text" class="form-control" name="google"
+                                                            value="{{ old('slug', $landing->google) }}">
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" id="option-endDate">Dribbble</span>
+                                                        <input type="text" class="form-control" name="dribbble"
+                                                            value="{{ old('slug', $landing->dribbble) }}">
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text"
+                                                            id="option-endDate">Soundcloud</span>
+                                                        <input type="text" class="form-control" name="soundcloud"
+                                                            value="{{ old('slug', $landing->soundcloud) }}">
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" id="option-endDate">Spotify</span>
+                                                        <input type="text" class="form-control" name="spotify"
+                                                            value="{{ old('slug', $landing->spotify) }}">
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" id="option-endDate">Skype</span>
+                                                        <input type="text" class="form-control" name="skype"
+                                                            value="{{ old('slug', $landing->skype) }}">
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" id="option-endDate">Whatsapp</span>
+                                                        <input type="text" class="form-control" name="whatsapp"
+                                                            value="{{ old('slug', $landing->whatsapp) }}">
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" id="option-endDate">Telegram</span>
+                                                        <input type="text" class="form-control" name="telegram"
+                                                            value="{{ old('slug', $landing->telegram) }}">
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" id="option-endDate">email</span>
+                                                        <input type="text" class="form-control" name="email"
+                                                            value="{{ old('slug', $landing->email) }}">
+                                                    </div>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -768,18 +824,19 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row mt-4">
-                            <div class="col-sm-6">
-                                <a href="/landing" class="btn text-muted d-none d-sm-inline-block btn-link">
-                                    <i class="mdi mdi-arrow-left me-1"></i> Back to Shopping Cart </a>
-                            </div> <!-- end col -->
-                            <div class="col-sm-6">
-                                <div class="text-end">
-                                    <a href="ecommerce-checkout" class="btn btn-success">
-                                        <i class="mdi mdi-truck-fast me-1"></i> Proceed to Shipping </a>
-                                </div>
-                            </div> <!-- end col -->
-                        </div> <!-- end row -->
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-sm-6">
+                            <a href="/landing" class="btn text-muted d-none d-sm-inline-block btn-link">
+                                <i class="mdi mdi-arrow-left me-1"></i> Back to Landing </a>
+                        </div> <!-- end col -->
+                        <div class="col-sm-6">
+                            <div class="text-end">
+                                <a href="ecommerce-checkout" class="btn btn-success">
+                                    <i class="mdi mdi-truck-fast me-1"></i> Update changes </a>
+                            </div>
+                        </div> <!-- end col -->
+                    </div> <!-- end row -->
                 </form>
             </div>
         </div>
