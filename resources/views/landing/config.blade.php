@@ -48,7 +48,9 @@
                 </div>
             </div>
             <div class="col-xl-10 col-sm-9">
-                <form>
+                <form action="{{ route('landing.update', $landing->id) }}" method="POST">
+                    @csrf
+                    @method('PUT')
                     <div class="card">
                         <div class="card-body">
                             <div class="tab-content" id="v-pills-tabContent">
@@ -60,7 +62,7 @@
                                             <div class="d-flex">
                                                 <div class="square-switch">
                                                     <input name="status" type="checkbox" id="square-switch3" switch="bool"
-                                                        checked="">
+                                                        {{ old('status', $landing->status) == 'on' ? 'checked' : '' }}>
                                                     <label for="square-switch3" data-on-label="Yes"
                                                         data-off-label="No"></label>
                                                 </div>
@@ -363,17 +365,17 @@
                                                                 <div class="form-group mb-3">
                                                                     <label for="input-date1">service 1</label>
                                                                     <input name="service_1" id="input-date1"
-                                                                        class="form-control input-mask">
-                                                                    <span class="text-muted">e.g "web development"</span>
+                                                                        class="form-control input-mask"
+                                                                        value="{{ old('slug', $landing->service_1) }}">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="mb-3">
                                                                     <label for="input-date1">service 1 link</label>
                                                                     <input name="service_1_link" id="input-date1"
-                                                                        class="form-control input-mask">
-                                                                    <span class="text-muted">e.g "/web or
-                                                                        https://...."</span>
+                                                                        class="form-control input-mask"
+                                                                        value="{{ old('slug', $landing->service_1_link) }}">
+
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -382,17 +384,17 @@
                                                                 <div class="form-group mb-3">
                                                                     <label for="input-date1">service 2</label>
                                                                     <input name="service_2" id="input-date1"
-                                                                        class="form-control input-mask">
-                                                                    <span class="text-muted">e.g "web development"</span>
+                                                                        class="form-control input-mask"
+                                                                        value="{{ old('slug', $landing->service_2) }}">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="mb-3">
                                                                     <label for="input-date1">service 2 link</label>
                                                                     <input name="service_2_link" id="input-date1"
-                                                                        class="form-control input-mask">
-                                                                    <span class="text-muted">e.g "/web or
-                                                                        https://...."</span>
+                                                                        class="form-control input-mask"
+                                                                        value="{{ old('slug', $landing->service_2_link) }}">
+
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -401,17 +403,17 @@
                                                                 <div class="form-group mb-3">
                                                                     <label for="input-date1">service 3</label>
                                                                     <input name="service_3" id="input-date1"
-                                                                        class="form-control input-mask">
-                                                                    <span class="text-muted">e.g "web development"</span>
+                                                                        class="form-control input-mask"
+                                                                        value="{{ old('slug', $landing->service_3) }}">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="mb-3">
                                                                     <label for="input-date1">service 3 link</label>
                                                                     <input name="service_3_link" id="input-date1"
-                                                                        class="form-control input-mask">
-                                                                    <span class="text-muted">e.g "/web or
-                                                                        https://...."</span>
+                                                                        class="form-control input-mask"
+                                                                        value="{{ old('slug', $landing->service_3_link) }}">
+
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -420,17 +422,17 @@
                                                                 <div class="form-group mb-3">
                                                                     <label for="input-date1">service 4</label>
                                                                     <input name="service_4" id="input-date1"
-                                                                        class="form-control input-mask">
-                                                                    <span class="text-muted">e.g "web development"</span>
+                                                                        class="form-control input-mask"
+                                                                        value="{{ old('slug', $landing->service_4) }}">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="mb-3">
                                                                     <label for="input-date1">service 4 link</label>
                                                                     <input name="service_4_link" id="input-date1"
-                                                                        class="form-control input-mask">
-                                                                    <span class="text-muted">e.g "/web or
-                                                                        https://...."</span>
+                                                                        class="form-control input-mask"
+                                                                        value="{{ old('slug', $landing->service_4_link) }}">
+
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -439,17 +441,17 @@
                                                                 <div class="form-group mb-3">
                                                                     <label for="input-date1">service 5</label>
                                                                     <input name="service_5" id="input-date1"
-                                                                        class="form-control input-mask">
-                                                                    <span class="text-muted">e.g "web development"</span>
+                                                                        class="form-control input-mask"
+                                                                        value="{{ old('slug', $landing->service_5) }}">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="mb-3">
                                                                     <label for="input-date1">service 5 link</label>
                                                                     <input name="service_5_link" id="input-date1"
-                                                                        class="form-control input-mask">
-                                                                    <span class="text-muted">e.g "/web or
-                                                                        https://...."</span>
+                                                                        class="form-control input-mask"
+                                                                        value="{{ old('slug', $landing->service_5_link) }}">
+
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -478,17 +480,17 @@
                                                                 <div class="form-group mb-3">
                                                                     <label for="input-date1">Company 1</label>
                                                                     <input name="company_1" id="input-date1"
-                                                                        class="form-control input-mask">
-                                                                    <span class="text-muted">e.g "web development"</span>
+                                                                        class="form-control input-mask"
+                                                                        value="{{ old('slug', $landing->company_1) }}">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="mb-3">
                                                                     <label for="input-date1">Company 1 link</label>
                                                                     <input name="company_1_link" id="input-date1"
-                                                                        class="form-control input-mask">
-                                                                    <span class="text-muted">e.g "/web or
-                                                                        https://...."</span>
+                                                                        class="form-control input-mask"
+                                                                        value="{{ old('slug', $landing->company_1_link) }}">
+
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -497,17 +499,17 @@
                                                                 <div class="form-group mb-3">
                                                                     <label for="input-date1">Company 2</label>
                                                                     <input name="company_2" id="input-date1"
-                                                                        class="form-control input-mask">
-                                                                    <span class="text-muted">e.g "web development"</span>
+                                                                        class="form-control input-mask"
+                                                                        value="{{ old('slug', $landing->company_2) }}">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="mb-3">
                                                                     <label for="input-date1">Company 2 link</label>
                                                                     <input name="company_2_link" id="input-date1"
-                                                                        class="form-control input-mask">
-                                                                    <span class="text-muted">e.g "/web or
-                                                                        https://...."</span>
+                                                                        class="form-control input-mask"
+                                                                        value="{{ old('slug', $landing->company_2_link) }}">
+
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -516,17 +518,17 @@
                                                                 <div class="form-group mb-3">
                                                                     <label for="input-date1">Company 3</label>
                                                                     <input name="company_3" id="input-date1"
-                                                                        class="form-control input-mask">
-                                                                    <span class="text-muted">e.g "web development"</span>
+                                                                        class="form-control input-mask"
+                                                                        value="{{ old('slug', $landing->company_3) }}">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="mb-3">
                                                                     <label for="input-date1">Company 3 link</label>
                                                                     <input name="company_3_link" id="input-date1"
-                                                                        class="form-control input-mask">
-                                                                    <span class="text-muted">e.g "/web or
-                                                                        https://...."</span>
+                                                                        class="form-control input-mask"
+                                                                        value="{{ old('slug', $landing->company_3_link) }}">
+
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -535,17 +537,17 @@
                                                                 <div class="form-group mb-3">
                                                                     <label for="input-date1">Company 4</label>
                                                                     <input name="company_4" id="input-date1"
-                                                                        class="form-control input-mask">
-                                                                    <span class="text-muted">e.g "web development"</span>
+                                                                        class="form-control input-mask"
+                                                                        value="{{ old('slug', $landing->company_4) }}">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="mb-3">
                                                                     <label for="input-date1">Company 4 link</label>
                                                                     <input name="company_4_link" id="input-date1"
-                                                                        class="form-control input-mask">
-                                                                    <span class="text-muted">e.g "/web or
-                                                                        https://...."</span>
+                                                                        class="form-control input-mask"
+                                                                        value="{{ old('slug', $landing->company_4_link) }}">
+
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -554,17 +556,17 @@
                                                                 <div class="form-group mb-3">
                                                                     <label for="input-date1">Company 5</label>
                                                                     <input name="company_5" id="input-date1"
-                                                                        class="form-control input-mask">
-                                                                    <span class="text-muted">e.g "web development"</span>
+                                                                        class="form-control input-mask"
+                                                                        value="{{ old('slug', $landing->company_5) }}">
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="mb-3">
                                                                     <label for="input-date1">Company 5 link</label>
                                                                     <input name="company_5_link" id="input-date1"
-                                                                        class="form-control input-mask">
-                                                                    <span class="text-muted">e.g "/web or
-                                                                        https://...."</span>
+                                                                        class="form-control input-mask"
+                                                                        value="{{ old('slug', $landing->company_5_link) }}">
+
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -594,18 +596,18 @@
                                                                     <div class="form-group mb-3">
                                                                         <label for="input-date1">Common 1</label>
                                                                         <input name="common_1" id="input-date1"
-                                                                            class="form-control input-mask">
-                                                                        <span class="text-muted">e.g "web
-                                                                            development"</span>
+                                                                            class="form-control input-mask"
+                                                                            value="{{ old('slug', $landing->common_1) }}">
+
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="mb-3">
                                                                         <label for="input-date1">Common 1 link</label>
                                                                         <input name="common_1_link" id="input-date1"
-                                                                            class="form-control input-mask">
-                                                                        <span class="text-muted">e.g "/web or
-                                                                            https://...."</span>
+                                                                            class="form-control input-mask"
+                                                                            value="{{ old('slug', $landing->common_1_link) }}">
+
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -614,18 +616,18 @@
                                                                     <div class="form-group mb-3">
                                                                         <label for="input-date1">Common 2</label>
                                                                         <input name="common_2" id="input-date1"
-                                                                            class="form-control input-mask">
-                                                                        <span class="text-muted">e.g "web
-                                                                            development"</span>
+                                                                            class="form-control input-mask"
+                                                                            value="{{ old('slug', $landing->common_2) }}">
+
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="mb-3">
                                                                         <label for="input-date1">Common 2 link</label>
                                                                         <input name="common_2_link" id="input-date1"
-                                                                            class="form-control input-mask">
-                                                                        <span class="text-muted">e.g "/web or
-                                                                            https://...."</span>
+                                                                            class="form-control input-mask"
+                                                                            value="{{ old('slug', $landing->common_2_link) }}">
+
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -634,18 +636,18 @@
                                                                     <div class="form-group mb-3">
                                                                         <label for="input-date1">Common 3</label>
                                                                         <input name="common_3" id="input-date1"
-                                                                            class="form-control input-mask">
-                                                                        <span class="text-muted">e.g "web
-                                                                            development"</span>
+                                                                            class="form-control input-mask"
+                                                                            value="{{ old('slug', $landing->common_3) }}">
+
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="mb-3">
                                                                         <label for="input-date1">Common 3 link</label>
                                                                         <input name="common_3_link" id="input-date1"
-                                                                            class="form-control input-mask">
-                                                                        <span class="text-muted">e.g "/web or
-                                                                            https://...."</span>
+                                                                            class="form-control input-mask"
+                                                                            value="{{ old('slug', $landing->common_3_link) }}">
+
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -675,8 +677,7 @@
                                                                         <label for="input-date1">Legal 1</label>
                                                                         <input name="legal_1" id="input-date1"
                                                                             class="form-control input-mask"value="{{ old('slug', $landing->legal_1) }}">
-                                                                        <span class="text-muted">e.g "web
-                                                                            development"</span>
+
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
@@ -684,8 +685,7 @@
                                                                         <label for="input-date1">Legal 1 link</label>
                                                                         <input name="legal_1_link" id="input-date1"
                                                                             class="form-control input-mask"value="{{ old('slug', $landing->legal_1_link) }}">
-                                                                        <span class="text-muted">e.g "/web or
-                                                                            https://...."</span>
+
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -695,8 +695,7 @@
                                                                         <label for="input-date1">Legal 2</label>
                                                                         <input name="legal_2" id="input-date1"
                                                                             class="form-control input-mask"value="{{ old('slug', $landing->legal_2) }}">
-                                                                        <span class="text-muted">e.g "web
-                                                                            development"</span>
+
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
@@ -704,8 +703,7 @@
                                                                         <label for="input-date1">Legal 2 link</label>
                                                                         <input name="legal_2_link" id="input-date1"
                                                                             class="form-control input-mask"value="{{ old('slug', $landing->legal_2_link) }}">
-                                                                        <span class="text-muted">e.g "/web or
-                                                                            https://...."</span>
+
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -715,8 +713,7 @@
                                                                         <label for="input-date1">Legal 3</label>
                                                                         <input name="legal_3" id="input-date1"
                                                                             class="form-control input-mask"value="{{ old('slug', $landing->legal_3) }}">
-                                                                        <span class="text-muted">e.g "web
-                                                                            development"</span>
+
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
@@ -724,8 +721,7 @@
                                                                         <label for="input-date1">Legal 3 link</label>
                                                                         <input name="legal_3_link" id="input-date1"
                                                                             class="form-control input-mask"value="{{ old('slug', $landing->legal_3_link) }}">
-                                                                        <span class="text-muted">e.g "/web or
-                                                                            https://...."</span>
+
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -832,8 +828,8 @@
                         </div> <!-- end col -->
                         <div class="col-sm-6">
                             <div class="text-end">
-                                <a href="ecommerce-checkout" class="btn btn-success">
-                                    <i class="mdi mdi-truck-fast me-1"></i> Update changes </a>
+                                <button type="submit" class="btn btn-success">
+                                    <i class="mdi mdi-truck-fast me-1"></i> Update changes </button>
                             </div>
                         </div> <!-- end col -->
                     </div> <!-- end row -->
