@@ -61,8 +61,16 @@
                                             <h5 class="font-size-14 mb-3">Web status</h5>
                                             <div class="d-flex">
                                                 <div class="square-switch">
-                                                    <input name="status" type="checkbox" id="square-switch3" switch="bool"
-                                                        {{ old('status', $landing->status) == 'on' ? 'checked' : '' }}>
+                                                    <select name="status" class="form-control">
+                                                        <option value="on"
+                                                            {{ old('status', $landing->status) == 'on' ? 'selected' : '' }}>
+                                                            on
+                                                        </option>
+                                                        <option value="off"
+                                                            {{ old('status', $landing->status) == 'off' ? 'selected' : '' }}>
+                                                            off
+                                                        </option>
+                                                    </select>
                                                     <label for="square-switch3" data-on-label="Yes"
                                                         data-off-label="No"></label>
                                                 </div>
@@ -74,11 +82,11 @@
                                                     <label for="formrow-email-input" class="form-label">Home</label>
                                                     <select name="home" class="form-control">
                                                         <option value="on"
-                                                            {{ old('home', $landing->status) == 'on' ? 'selected' : '' }}>
+                                                            {{ old('home', $landing->home) == 'on' ? 'selected' : '' }}>
                                                             on
                                                         </option>
                                                         <option value="off"
-                                                            {{ old('home', $landing->status) == 'off' ? 'selected' : '' }}>
+                                                            {{ old('home', $landing->home) == 'off' ? 'selected' : '' }}>
                                                             off
                                                         </option>
                                                     </select>

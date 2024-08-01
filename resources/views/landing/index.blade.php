@@ -13,6 +13,11 @@
             Status
         @endslot
     @endcomponent
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
     @if ($landing->status == 'on')
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <i class="mdi mdi-check-all me-2"></i>
@@ -1054,57 +1059,4 @@
     <!-- Saas dashboard init -->
     <script src="{{ URL::asset('build/js/pages/saas-dashboard.init.js') }}"></script>
 @endsection
- 
-{{ $landing->footer }}
-{{ $landing->service_footer }}
-{{ $landing->service_1 }}
-{{ $landing->service_1_link }}
-{{ $landing->service_2 }}
-{{ $landing->service_2_link }}
-{{ $landing->service_3 }}
-{{ $landing->service_3_link }}
-{{ $landing->service_4 }}
-{{ $landing->service_4_link }}
-{{ $landing->service_5 }}
-{{ $landing->service_5_link }}
-{{ $landing->company_footer }}
-{{ $landing->company_1 }}
-{{ $landing->company_1_link }}
-{{ $landing->company_2 }}
-{{ $landing->company_2_link }}
-{{ $landing->company_3 }}
-{{ $landing->company_3_link }}
-{{ $landing->company_4 }}
-{{ $landing->company_4_link }}
-{{ $landing->company_5 }}
-{{ $landing->company_5_link }}
-{{ $landing->common_footer }}
-{{ $landing->common_1 }}
-{{ $landing->common_1_link }}
-{{ $landing->common_2 }}
-{{ $landing->common_2_link }}
-{{ $landing->common_3 }}
-{{ $landing->common_3_link }}
-{{ $landing->legal_footer }}
-{{ $landing->legal_1 }}
-{{ $landing->legal_1_link }}
-{{ $landing->legal_2 }}
-{{ $landing->legal_2_link }}
-{{ $landing->legal_3 }}
-{{ $landing->legal_3_link }}
-{{ $landing->facebook }}
-{{ $landing->twitter }}
-{{ $landing->instagram }}
-{{ $landing->linkedin }}
-{{ $landing->youtube }}
-{{ $landing->pinterest }}
-{{ $landing->google }}
-{{ $landing->dribbble }}
-{{ $landing->soundcloud }}
-{{ $landing->spotify }}
-{{ $landing->skype }}
-{{ $landing->whatsapp }}
-{{ $landing->telegram }}
-{{ $landing->email }}
-{{ $landing->created_at }}
-{{ $landing->updated_at }}
+  
