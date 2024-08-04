@@ -1,7 +1,7 @@
   @extends('layouts.master')
 
   @section('title')
-      Landing
+      maintenance
   @endsection
 
   @section('content')
@@ -35,7 +35,7 @@
                           <div class="mb-3">
                               <label for="projectname-input" class="form-label">Status</label>
 
-                              <select name="time_line_status" id="time_select" class="form-control">
+                              <select name="time_line_status" id="time-select" class="form-control">
                                   <option value="on">on</option>
                                   <option value="off">off</option>
                               </select>
@@ -93,6 +93,7 @@
               </div>
               <!-- end col -->
 
+
               <div class="col-lg-12">
                   <div class="text-end mb-4">
                       <button type="submit" class="btn btn-primary">Create Project</button>
@@ -100,24 +101,161 @@
               </div>
           </div>
           <!-- end row -->
-      </form>
-      <script>
-          $(document).ready(function() {
-              function toggleTimeFields() {
-                  if ($('#time-select').val() == 'on') {
-                      $('.time-fields').show();
-                  } else {
-                      $('.time-fields').hide();
-                  }
-              }
+          <div class="row">
 
-              // Initial check
-              toggleTimeFields();
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="formrow-email-input" class="f"> <b>Common
+                                                                    section</b></label>
+                                                            <select name="common_footer" id="common-select"
+                                                                class="form-control">
+                                                                <option value="on"
+                                                                    {{ old('common_footer', $maintenance->common_footer) == 'on' ? 'selected' : '' }}>
+                                                                    on
+                                                                </option>
+                                                                <option value="off"
+                                                                    {{ old('common_footer', $maintenance->common_footer) == 'off' ? 'selected' : '' }}>
+                                                                    off
+                                                                </option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="common-fields">
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group mb-3">
+                                                                        <label for="input-date1">Common 1</label>
+                                                                        <input name="common_1" id="input-date1"
+                                                                            class="form-control input-mask"
+                                                                            value="{{ old('slug', $maintenance->common_1) }}">
 
-              // Check on change
-              $('#time-select').change(function() {
-                  toggleTimeFields();
-              });
-          });
-      </script>
-  @endsection
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="mb-3">
+                                                                        <label for="input-date1">Common 1 link</label>
+                                                                        <input name="common_1_link" id="input-date1"
+                                                                            class="form-control input-mask"
+                                                                            value="{{ old('slug', $maintenance->common_1_link) }}">
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group mb-3">
+                                                                        <label for="input-date1">Common 2</label>
+                                                                        <input name="common_2" id="input-date1"
+                                                                            class="form-control input-mask"
+                                                                            value="{{ old('slug', $maintenance->common_2) }}">
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="mb-3">
+                                                                        <label for="input-date1">Common 2 link</label>
+                                                                        <input name="common_2_link" id="input-date1"
+                                                                            class="form-control input-mask"
+                                                                            value="{{ old('slug', $maintenance->common_2_link) }}">
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group mb-3">
+                                                                        <label for="input-date1">Common 3</label>
+                                                                        <input name="common_3" id="input-date1"
+                                                                            class="form-control input-mask"
+                                                                            value="{{ old('slug', $maintenance->common_3) }}">
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="mb-3">
+                                                                        <label for="input-date1">Common 3 link</label>
+                                                                        <input name="common_3_link" id="input-date1"
+                                                                            class="form-control input-mask"
+                                                                            value="{{ old('slug', $maintenance->common_3_link) }}">
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="formrow-email-input" class="form-label">Legal
+                                                                section</label>
+                                                            <select name="legal_footer" id="legal-select"
+                                                                class="form-control">
+                                                                <option value="on"
+                                                                    {{ old('legal_footer', $maintenance->legal_footer) == 'on' ? 'selected' : '' }}>
+                                                                    on
+                                                                </option>
+                                                                <option value="off"
+                                                                    {{ old('legal_footer', $maintenance->legal_footer) == 'off' ? 'selected' : '' }}>
+                                                                    off
+                                                                </option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="legal-fields">
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group mb-3">
+                                                                        <label for="input-date1">Legal 1</label>
+                                                                        <input name="legal_1" id="input-date1"
+                                                                            class="form-control input-mask"value="{{ old('slug', $maintenance->legal_1) }}">
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="mb-3">
+                                                                        <label for="input-date1">Legal 1 link</label>
+                                                                        <input name="legal_1_link" id="input-date1"
+                                                                            class="form-control input-mask"value="{{ old('slug', $maintenance->legal_1_link) }}">
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group mb-3">
+                                                                        <label for="input-date1">Legal 2</label>
+                                                                        <input name="legal_2" id="input-date1"
+                                                                            class="form-control input-mask"value="{{ old('slug', $maintenance->legal_2) }}">
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="mb-3">
+                                                                        <label for="input-date1">Legal 2 link</label>
+                                                                        <input name="legal_2_link" id="input-date1"
+                                                                            class="form-control input-mask"value="{{ old('slug', $maintenance->legal_2_link) }}">
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group mb-3">
+                                                                        <label for="input-date1">Legal 3</label>
+                                                                        <input name="legal_3" id="input-date1"
+                                                                            class="form-control input-mask"value="{{ old('slug', $maintenance->legal_3) }}">
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="mb-3">
+                                                                        <label for="input-date1">Legal 3 link</label>
+                                                                        <input name="legal_3_link" id="input-date1"
+                                                                            class="form-control input-mask"value="{{ old('slug', $maintenance->legal_3_link) }}">
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+      </form> 
+       @endsection
