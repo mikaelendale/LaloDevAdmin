@@ -41,14 +41,17 @@
                         <span key="t-landing"> Landing </span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="/landing" key="t-Top landing">Status </a></li> 
+                        <li><a href="/status" key="t-Top landing">Status </a></li>
+                    </ul>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="/maintenance" key="t-Top maintenance">maintenance config </a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="/userspage" class="waves-effect">
                         <i class="bx bx-user-plus"></i>
                         <span key="t-blog"> Users Page </span>
-                    </a> 
+                    </a>
                 </li>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
@@ -71,7 +74,7 @@
                     </a>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <span class="badge rounded-pill bg-success float-end" key="t-hot">  cool </span>
+                        <span class="badge rounded-pill bg-success float-end" key="t-hot"> cool </span>
                         <i class="bx bxs-calendar-event"></i>
                         <span key="t-layouts">Events </span>
                     </a>
@@ -83,7 +86,7 @@
                         <li>
                             <a href="/events/all" key="t-horizontal">All</a>
                         </li>
-                        
+
                         <li>
                             <a href="/events/create" key="t-horizontal">Add new </a>
                         </li>

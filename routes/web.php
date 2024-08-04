@@ -58,9 +58,11 @@ Route::middleware(['auth'])->group(function () {
 });
 //user
 Route::middleware(['auth'])->group(function () {
-    Route::get('/landing', [LandingController::class, 'index'])->name('landing');
-    Route::get('landing/config/{id}', [LandingController::class, 'config'])->name('landing.config');
+    Route::get('/status', [LandingController::class, 'index'])->name('landing');
+    Route::get('/landing/config/{id}', [LandingController::class, 'config'])->name('landing.config');
     Route::put('landing/{id}', [LandingController::class, 'update'])->name('landing.update');
+    Route::get('/maintenance', [LandingController::class, 'maintenance'])->name('landing.maintenance');
+    Route::get('/maintenance/{id}', [LandingController::class, 'maintain'])->name('landing.maintain');
 });
 
 Route::middleware(['auth'])->group(function () {
