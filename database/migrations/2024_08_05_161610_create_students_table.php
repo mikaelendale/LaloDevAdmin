@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('phone_no')->unique()->nullable();
             $table->string('password');
             $table->string('class_attended')->nullable();
             $table->text('profile')->default('https://cdn2.iconfinder.com/data/icons/leto-blue-online-education/64/__woman_laptop_student_studing-512.png');
