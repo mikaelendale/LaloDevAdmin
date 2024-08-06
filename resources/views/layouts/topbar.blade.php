@@ -3,21 +3,21 @@
         <div class="d-flex">
             <!-- LOGO -->
             <div class="navbar-brand-box">
-                <a href="index" class="logo logo-dark">
+                <a href="/" class="logo logo-dark">
                     <span class="logo-sm">
-                        <img src="{{ URL::asset('build/images/icon.png') }}" alt="" height="22">
+                        <img src="{{ URL::asset('build/images/icon.png') }}" alt="" height="30">
                     </span>
                     <span class="logo-lg">
-                        <img src="{{ URL::asset('build/images/icon.png') }}" alt="" height="17">
+                        <img src="{{ URL::asset('build/images/icon.png') }}" alt="" height="44">
                     </span>
                 </a>
 
-                <a href="index" class="logo logo-light">
+                <a href="/index" class="logo logo-light">
                     <span class="logo-sm">
-                        <img src="{{ URL::asset('build/images/icon.png') }}" alt="" height="22">
+                        <img src="{{ URL::asset('build/images/icon.png') }}" alt="" height="30">
                     </span>
                     <span class="logo-lg">
-                        <img src="{{ URL::asset('build/images/icon.png') }}" alt="" height="49">
+                        <img src="{{ URL::asset('build/images/icon.png') }}" alt="" height="44">
                     </span>
                 </a>
             </div>

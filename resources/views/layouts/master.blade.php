@@ -10,7 +10,7 @@
 </head>
 
 @section('body')
-    <body data-sidebar="dark" data-layout-mode="dark" data-bs-theme="dark">
+    <body data-sidebar="light" data-layout-mode="dark" data-bs-theme="light">
 @show
     <!-- Begin page -->
     <div id="layout-wrapper">
