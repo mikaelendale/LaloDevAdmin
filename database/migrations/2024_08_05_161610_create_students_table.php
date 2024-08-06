@@ -15,11 +15,19 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->rememberToken();
+            $table->string('class_attended')->nullable();
+            $table->text('profile')->default('https://cdn2.iconfinder.com/data/icons/leto-blue-online-education/64/__woman_laptop_student_studing-512.png');
+            $table->string('status')->default('pending');
+            $table->boolean('payment')->default('not_done'); // or use tinyInteger if you prefer
+            $table->string('telegram_username')->nullable();
+            $table->string('gender')->nullable();
+            $table->text('address')->nullable();
+            $table->date('dob')->nullable();
+            $table->date('notification')->default('on');
             $table->timestamps();
         });
+
     }
 
     /**
@@ -30,4 +38,3 @@ return new class extends Migration
         Schema::dropIfExists('students');
     }
 };
-

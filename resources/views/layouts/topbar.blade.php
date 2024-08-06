@@ -265,5 +265,4 @@ aria-labelledby="myLargeModalLabel" aria-hidden="true">
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-1
+</div><!-- /.modal --> 
