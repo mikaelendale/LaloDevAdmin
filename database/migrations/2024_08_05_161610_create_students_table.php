@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('phone_no')->unique()->nullable();
             $table->string('password');
             $table->string('class_attended')->nullable();
-            $table->text('profile')->default('https://cdn2.iconfinder.com/data/icons/leto-blue-online-education/64/__woman_laptop_student_studing-512.png');
+            $table->string('profile_pic')->nullable();
             $table->string('status')->default('pending');
             $table->boolean('payment')->default('not_done'); // or use tinyInteger if you prefer
             $table->string('telegram_username')->nullable();
