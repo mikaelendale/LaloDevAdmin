@@ -20,12 +20,12 @@ return new class extends Migration
             $table->string('class_attended')->nullable();
             $table->string('profile_pic')->nullable();
             $table->string('status')->default('pending');
-            $table->boolean('payment')->default('not_done'); // or use tinyInteger if you prefer
+            $table->boolean('payment')->nullable(); // or use tinyInteger if you prefer
             $table->string('telegram_username')->nullable();
             $table->string('gender')->nullable();
             $table->text('address')->nullable();
             $table->date('dob')->nullable();
-            $table->date('notification')->default('on');
+            $table->date('notification')->nullable();
             $table->timestamps();
         });
 
