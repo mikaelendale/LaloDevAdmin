@@ -6,6 +6,7 @@ use App\Http\Controllers\EventsController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\SitestatController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserpageController;
 use Illuminate\Support\Facades\Auth;
@@ -34,12 +35,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/events', [PagesController::class, 'events'])->name('pages.events');
     Route::get('/tasks', [PagesController::class, 'tasks'])->name('pages.tasks');
     Route::get('/telegram_managment', [PagesController::class, 'telegram_managment'])->name('pages.telegram_managment');
-    Route::get('/learn_dashboard', [PagesController::class, 'learn_dashboard'])->name('pages.learn_dashboard');
-    Route::get('/docs', [PagesController::class, 'docs'])->name('pages.docs');
-    Route::get('/classes', [PagesController::class, 'classes'])->name('pages.classes');
-    Route::get('/attendance', [PagesController::class, 'attendance'])->name('pages.attendance');
-    Route::get('/students_dash', [PagesController::class, 'students_dash'])->name('pages.students_dash');
-    Route::get('/certificates', [PagesController::class, 'certificates'])->name('pages.certificates');
+    
 });
 //editing function for users
 Route::middleware(['auth'])->group(function () {
@@ -109,6 +105,19 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/community', [UserController::class, 'showCommunity'])->name('community.community');
     Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
     Route::post('/users', [UserController::class, 'store'])->name('users.store');
+});
+
+//student related
+Route::middleware(['auth'])->group(function () {
+    Route::get('/learn_dashboard', [StudentController::class, 'index'])->name('students.index');
+    Route::get('/docs', [StudentController::class, 'docs'])->name('pages.docs');
+    Route::get('/classes', [StudentController::class, 'classes'])->name('pages.classes');
+    Route::get('/attendance', [StudentController::class, 'attendance'])->name('pages.attendance');
+    Route::get('/students_dash', [StudentController::class, 'students_dash'])->name('pages.students_dash');
+    Route::get('/certificates', [StudentController::class, 'certificates'])->name('pages.certificates');
+    Route::get('/students/edit/{id}', [StudentController::class, 'edit'])->name('students.edit');
+    Route::put('/students/update/{id}', [StudentController::class, 'update'])->name('students.update');
+    Route::post('/students/approve/{id}', [StudentController::class, 'approve'])->name('students.approve');
 });
 
 //Update User Details

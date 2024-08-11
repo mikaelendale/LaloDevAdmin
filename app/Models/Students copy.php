@@ -5,7 +5,6 @@ namespace App\Models;
 use App\Models\Notification;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-
 // Import the Notification model
 
 class Students extends Authenticatable
@@ -41,7 +40,7 @@ class Students extends Authenticatable
 
     /**
      * Get the notifications for the student.
-     */
+     */ 
     public function enrollments()
     {
         return $this->hasMany(Enrolled::class, 'students_id');

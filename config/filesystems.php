@@ -49,6 +49,12 @@ return [
             'url' => env('APP_URL') . '/event_images',
             'visibility' => 'public',
         ],
+        'students_pic' => [
+            'driver' => 'local',
+            'root' => storage_path('../../students_pic'), // Adjust the path to your external directory
+            'url' => env('APP_URL') . '/students_pic',
+            'visibility' => 'public',
+        ],
 
         'public' => [
             'driver' => 'local',
@@ -85,6 +91,7 @@ return [
         public_path('storage') => storage_path('app/public'),
         public_path('blog_images') => storage_path('../../blog_images'),
         public_path('event_images') => storage_path('../../event_images'),
+        public_path('students_pic') => storage_path('../../students_pic'),
     ],
 
 ];

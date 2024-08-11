@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Students;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -120,28 +121,5 @@ class PagesController extends Controller
     {
         return view('telegram_managment');
     }
-    public function learn_dashboard()
-    {
-        return view('learn_dashboard');
-    }
-    public function docs()
-    {
-        return view('docs');
-    }
-    public function classes()
-    {
-        return view('classes');
-    }
-    public function attendance()
-    {
-        return view('attendance');
-    }
-    public function users_dash()
-    {
-        return view('users_dash');
-    }
-    public function certificates()
-    {
-        return view('certificates');
-    }
+    
 }
