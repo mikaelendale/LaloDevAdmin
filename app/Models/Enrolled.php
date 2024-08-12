@@ -29,4 +29,9 @@ class Enrolled extends Model
     {
         return $this->belongsTo(Students::class, 'students_id');
     }
+    public function user()
+{
+    return $this->belongsTo(User::class);
+}
+
 }

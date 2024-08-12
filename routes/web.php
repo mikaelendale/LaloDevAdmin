@@ -110,7 +110,12 @@ Route::middleware(['auth'])->group(function () {
 //student related
 Route::middleware(['auth'])->group(function () {
     Route::get('/learn_dashboard', [StudentController::class, 'index'])->name('students.index');
-    Route::get('/docs', [StudentController::class, 'docs'])->name('pages.docs');
+    Route::get('/courses', [StudentController::class, 'courses'])->name('pages.courses');
+    Route::get('/courses/search', [StudentController::class, 'filter'])->name('courses.index');
+    Route::get('/courses/detail{id}', [StudentController::class, 'detail'])->name('courses.detail');
+    Route::get('/courses/edit', [StudentController::class, 'edit'])->name('courses.edit');
+    Route::get('/courses/deactivate', [StudentController::class, 'deactivate'])->name('courses.deactivate');
+    Route::get('/courses/subsection', [StudentController::class, 'subsection'])->name('subsections.index');
     Route::get('/classes', [StudentController::class, 'classes'])->name('pages.classes');
     Route::get('/attendance', [StudentController::class, 'attendance'])->name('pages.attendance');
     Route::get('/students_dash', [StudentController::class, 'students_dash'])->name('pages.students_dash');
