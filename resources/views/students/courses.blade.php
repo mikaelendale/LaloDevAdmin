@@ -80,7 +80,7 @@
 
 
                             <div class="flex-grow-1 overflow-hidden">
-                                <h5 class="text-truncate font-size-15"><a href="javascript: void(0);"
+                                <h5 class="text-truncate font-size-15"><a href="{{route('courses.detail', $course->id)}}"
                                         class="text-dark">{{ $course->name }}</a></h5>
                                 <p class="text-muted mb-4">{{ $course->description }}</p>
                                 <div class="avatar-group">

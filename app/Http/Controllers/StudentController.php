@@ -118,7 +118,7 @@ class StudentController extends Controller
         $course->instructor_experience = is_string($course->instructor_experience) ? json_decode($course->instructor_experience, true) : $course->instructor_experience;
 
         // Return the view with the course data
-        return view('students.courses', compact('course'));
+        return view('students.detail', compact('course'));
     }
 
     public function classes()
