@@ -158,17 +158,67 @@ class CourseController extends Controller
         } else {
             return redirect()->route('students.manage.course.config')->with('error', 'Course not found');
         }
-    } 
+    }
     public function update(Request $request, $id)
-    { 
+    {
 
         $subsection = Subsection::findOrFail($id);
         $subsection->update($request->only([
             'name', 'detail', 'order', 'description',
-        ])); 
+        ]));
 
         return redirect()->route('subsection.edit', ['id' => $subsection->id])
-        ->with('success', 'Subsection updated successfully.')
-        ->with('success', 'Student updated successfully.');
+            ->with('success', 'Subsection updated successfully.')
+            ->with('success', 'Student updated successfully.');
     }
-} 
+    public function destroy($id)
+{
+    $subsection = Subsection::findOrFail($id);
+    $subsection->delete();
+
+    return redirect()->back()->with('success', 'Subsection deleted successfully.');
+}
+
+    //subsection create
+    public function sub_create($id)
+    {
+        // Find the course by its ID
+        $course = Courses::findOrFail($id);
+
+        $lastOrder = Subsection::where('course_id', $id)->max('order');
+
+        // Set the next order value
+        $nextOrder = $lastOrder ? $lastOrder + 1 : 1;
+
+        // Get all courses for the select menu
+        $allCourses = Courses::all();
+
+        // Pass the course data and all courses to the blade view
+        return view('students.course.subsection_create', compact('course', 'allCourses', 'nextOrder'));
+    }
+    public function sub_store(Request $request)
+    {
+        // Validate the request data
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'detail' => 'required|string|max:255',
+            'order' => 'required|integer',
+            'description' => 'required|string',
+            'course_id' => 'required|exists:courses,id', // Ensure course_id is valid
+        ]);
+
+        // Create the subsection
+        Subsection::create([
+            'name' => $validated['name'],
+            'detail' => $validated['detail'],
+            'order' => $validated['order'],
+            'description' => $validated['description'],
+            'course_id' => $validated['course_id'], // Save course_id
+        ]);
+
+        // Redirect back to the subsection creation page with the course ID
+        return redirect()->route('courses.edit', ['id' => $validated['course_id']])
+            ->with('success', 'Subsection created successfully.');
+    }
+
+}

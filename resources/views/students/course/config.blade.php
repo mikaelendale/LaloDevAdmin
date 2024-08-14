@@ -13,6 +13,20 @@
             config
         @endslot
     @endcomponent
+     @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
     <div class="row">
         <div class="col-12">
             <div class="card">
@@ -70,7 +84,7 @@
 
                         <div class="d-flex flex-wrap gap-2">
                             <button type="submit" class="btn btn-primary waves-effect waves-light">Save Changes</button>
-                            <button type="button" class="btn btn-secondary waves-effect waves-light">Cancel</button>
+                            <a href="{{route('courses.manage')}}" class="btn btn-secondary waves-effect waves-light">Cancel</a>
                         </div>
                     </form>
 
@@ -83,7 +97,8 @@
             <div class="card">
                 <div class="card-body">
                     <div class="row">
-                        <h4 class="card-title mb-4"> <a class="btn btn-success" href="http://127.0.0.1:8080/users/create"><i
+                        <h4 class="card-title mb-4"> <a class="btn btn-success"
+                                href="{{ route('subsection.create', $courses->id) }}"><i
                                     class="bx bx-plus align-middle"></i>&nbsp; Add Course Subsection</a>
                         </h4>
                     </div>
@@ -96,35 +111,51 @@
                                     <th class="align-middle">Name of Course section</th>
                                     <th class="align-middle">Detail</th>
                                     <th class="align-middle">Action</th>
+                                    <th class="align-middle"></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @if ($courses->subsections->isEmpty())
                                     <tr>
-                                        <td colspan="4" class="text-center">There are no subsections available.</td>
+                                        <td colspan="5" class="text-center">There are no subsections available.</td>
                                     </tr>
                                 @else
                                     @foreach ($courses->subsections as $subsections)
                                         <tr>
                                             <td>
-                                                {{$subsections->order}}
+                                                {{ $subsections->order }}
                                             </td>
-                                            <td><a href="javascript: void(0);"
-                                                    class="text-body fw-bold">{{ $subsections->name }}</a> </td>
+                                            <td>
+                                                <a href="javascript: void(0);"
+                                                    class="text-body fw-bold">{{ $subsections->name }}</a>
+                                            </td>
                                             <td>{{ $subsections->detail }}</td>
                                             <td>
-                                                <!-- Button trigger modal -->
                                                 <a href="{{ route('subsection.edit', $subsections->id) }}"
                                                     class="btn btn-soft-primary">
                                                     Edit Details
-                                                </a>
+                                                </a> 
+                                                <a href="{{ route('subsection.module', $subsections->id) }}"
+                                                    class="btn btn-soft-primary">
+                                                    Edit Modules
+                                                </a> 
+                                              </td>  <td>
+                                                <!-- Delete Button -->
+                                                <form action="{{ route('subsection.destroy', $subsections->id) }}"
+                                                    method="POST"
+                                                    onsubmit="return confirm('Are you sure you want to delete this subsection?');">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-soft-danger">
+                                                        Delete
+                                                    </button>
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach
                                 @endif
-
-
                             </tbody>
+
                         </table>
                     </div>
                     <!-- end table-responsive -->

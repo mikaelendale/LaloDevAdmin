@@ -123,6 +123,10 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/courses/store', [CourseController::class, 'store'])->name('courses.store');
     Route::get('/courses/subsection/edit/{id}', [CourseController::class, 'edit'])->name('subsection.edit');
     Route::PUT('/courses/subsection/update/{id}', [CourseController::class, 'update'])->name('subsection.update');
+    Route::delete('/courses/subsection/{id}', [CourseController::class, 'destroy'])->name('subsection.destroy');
+    Route::get('/courses/subsection/create/{id}', [CourseController::class, 'sub_create'])->name('subsection.create');
+    Route::post('/courses/subsection/create', [CourseController::class, 'sub_store'])->name('subsection.store');
+    Route::get('/courses/subsection/module/{id}', [CourseController::class, 'module'])->name('subsection.module');
     Route::get('/attendance', [StudentController::class, 'attendance'])->name('pages.attendance');
     Route::get('/students_dash', [StudentController::class, 'students_dash'])->name('pages.students_dash');
     Route::get('/certificates', [StudentController::class, 'certificates'])->name('pages.certificates');
