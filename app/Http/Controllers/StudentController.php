@@ -13,6 +13,34 @@ class StudentController extends Controller
         $students = Students::paginate(10);
         return view('students.index', compact('students'));
     }
+
+    //creating func
+    public function create()
+    {
+        return view('students.create');
+    }
+
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:students',
+            'password' => 'required|string|max:255',
+            'dob' => 'required|string|max:255',
+            'level' => 'required|string|max:255', 
+        ]);
+
+        Students::create([
+            'name' => $validated['name'],
+            'email' => $validated['email'], 
+            'password' => bcrypt($validated['password']),
+            'dob' => $validated['dob'],
+            'level' => $validated['level'],
+        ]);
+
+        return redirect()->route('students.index')->with('success', 'student created successfully.');
+    }
+
     //approving func
     // StudentController.php
 
@@ -61,70 +89,8 @@ class StudentController extends Controller
         return redirect()->route('students.index')->with('success', 'Student updated successfully.');
     }
 
-    public function courses()
-    {
-        $courses = Courses::with('enrollments.student')->paginate(9);
-        return view('students.courses', compact('courses'));
-    }
+     
 
-    //filter function
-    public function filter(Request $request)
-    {
-        // Start with a base query
-        $query = Courses::query();
-
-        // Filter by search term
-        if ($request->filled('search')) {
-            $query->where('name', 'like', '%' . $request->search . '%');
-        }
-
-        // Filter by status
-        if ($request->filled('status') && $request->status !== 'all') {
-            $query->where('status', $request->status);
-        }
-
-        // Filter by type (beginner, intermediate, advanced)
-        if ($request->filled('type') && $request->type !== 'all') {
-            $query->where('level', $request->type);
-        }
-
-        // Filter by date
-        if ($request->filled('date')) {
-            $query->whereDate('created_at', $request->date);
-        }
-
-        // Paginate the results and load enrollments with users
-        $courses = $query->with('enrollments.student')->paginate(9);
-
-        // Pass the filtered courses to the view
-        return view('students.courses', compact('courses'));
-    }
-
-    //courses details
-    public function detail($id)
-    {
-        // Fetch the course with the given ID, including related data
-        $course = Courses::with(['subsections', 'enrollments.student'])
-            ->find($id);
-
-        // Check if the course was found
-        if (!$course) {
-            // Handle the case where the course is not found
-            return redirect()->route('courses.index')->withErrors('Course not found');
-        }
-
-        // Ensure outcomes and instructor_experience are arrays or collections
-        $course->outcomes = is_string($course->outcomes) ? json_decode($course->outcomes, true) : $course->outcomes;
-        $course->instructor_experience = is_string($course->instructor_experience) ? json_decode($course->instructor_experience, true) : $course->instructor_experience;
-
-        // Return the view with the course data
-        return view('students.detail', compact('course'));
-    }
-
-    public function classes()
-    {
-        return view('classes');
-    }
     public function attendance()
     {
         return view('attendance');

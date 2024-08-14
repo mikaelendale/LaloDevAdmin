@@ -20,6 +20,9 @@ class Courses extends Model
         'category',
         'level',
         'status',
+        'outcomes',
+        'start_date',
+        'instructor_experience',
     ];
     protected $casts = [
         'published_at' => 'datetime',

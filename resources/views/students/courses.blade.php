@@ -27,7 +27,8 @@
                                 <select class="form-select" name="status" id="idStatus"
                                     aria-label="Default select example">
                                     <option value="all">Status</option>
-                                    <option value="unpublished" {{ request()->status == 'unpublished' ? 'selected' : '' }}>Pending
+                                    <option value="unpublished" {{ request()->status == 'unpublished' ? 'selected' : '' }}>
+                                        Pending
                                     </option>
                                     <option value="published" {{ request()->status == 'published' ? 'selected' : '' }}>
                                         Approved</option>
@@ -80,38 +81,21 @@
 
 
                             <div class="flex-grow-1 overflow-hidden">
-                                <h5 class="text-truncate font-size-15"><a href="{{route('courses.detail', $course->id)}}"
+                                <h5 class="text-truncate font-size-15"><a href="{{ route('courses.detail', $course->id) }}"
                                         class="text-dark">{{ $course->name }}</a></h5>
                                 <p class="text-muted mb-4">{{ $course->description }}</p>
                                 <div class="avatar-group">
-                                    <div class="avatar-group-item">
-                                        <a href="javascript: void(0);" class="d-inline-block">
-                                            <img src="http://127.0.0.1:8090/build/images/users/avatar-4.jpg" alt=""
-                                                class="rounded-circle avatar-xs">
-                                        </a>
-                                    </div>
-                                    <div class="avatar-group-item">
-                                        <a href="javascript: void(0);" class="d-inline-block">
-                                            <img src="http://127.0.0.1:8090/build/images/users/avatar-5.jpg" alt=""
-                                                class="rounded-circle avatar-xs">
-                                        </a>
-                                    </div>
-                                    <div class="avatar-group-item">
-                                        <a href="javascript: void(0);" class="d-inline-block">
-                                            <div class="avatar-xs">
-                                                <span
-                                                    class="avatar-title rounded-circle bg-success text-white font-size-16">
-                                                    A
-                                                </span>
+                                    @foreach ($course->enrollments as $enrollment)
+                                        @if ($enrollment->student)
+                                            <!-- Ensure the student relationship exists -->
+                                            <div class="avatar-group-item">
+                                                <a href="javascript:void(0);" class="d-inline-block">
+                                                    <img src="{{ asset('students_pic/' . $enrollment->student->profile_pic) }}"
+                                                        alt="" class="rounded-circle avatar-xs">
+                                                </a>
                                             </div>
-                                        </a>
-                                    </div>
-                                    <div class="avatar-group-item">
-                                        <a href="javascript: void(0);" class="d-inline-block">
-                                            <img src="http://127.0.0.1:8090/build/images/users/avatar-2.jpg" alt=""
-                                                class="rounded-circle avatar-xs">
-                                        </a>
-                                    </div>
+                                        @endif
+                                    @endforeach 
                                 </div>
                             </div>
                         </div>

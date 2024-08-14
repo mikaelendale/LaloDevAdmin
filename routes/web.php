@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\EventsController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\PagesController;
@@ -110,19 +111,25 @@ Route::middleware(['auth'])->group(function () {
 //student related
 Route::middleware(['auth'])->group(function () {
     Route::get('/learn_dashboard', [StudentController::class, 'index'])->name('students.index');
-    Route::get('/courses', [StudentController::class, 'courses'])->name('pages.courses');
-    Route::get('/courses/search', [StudentController::class, 'filter'])->name('courses.index');
-    Route::get('/courses/detail{id}', [StudentController::class, 'detail'])->name('courses.detail');
-    Route::get('/courses/edit', [StudentController::class, 'edit'])->name('courses.edit');
-    Route::get('/courses/deactivate', [StudentController::class, 'deactivate'])->name('courses.deactivate');
-    Route::get('/courses/subsection', [StudentController::class, 'subsection'])->name('subsections.index');
-    Route::get('/classes', [StudentController::class, 'classes'])->name('pages.classes');
+    Route::get('/students/create', [StudentController::class, 'create'])->name('students.create');
+    Route::get('/courses', [CourseController::class, 'courses'])->name('pages.courses');
+    Route::get('/courses/search', [CourseController::class, 'filter'])->name('courses.index');
+    Route::get('/courses/detail{id}', [CourseController::class, 'detail'])->name('courses.detail');
+    Route::get('/courses/edit/{id}', [CourseController::class, 'config'])->name('courses.edit');
+    Route::get('/courses/deactivate', [CourseController::class, 'deactivate'])->name('courses.deactivate');
+    Route::get('/courses/subsection', [CourseController::class, 'subsection'])->name('subsections.index');
+    Route::get('/courses/manage', [CourseController::class, 'manage'])->name('courses.manage');
+    Route::get('/courses/create', [CourseController::class, 'create'])->name('courses.create');
+    Route::post('/courses/store', [CourseController::class, 'store'])->name('courses.store');
+    Route::get('/courses/subsection/edit/{id}', [CourseController::class, 'edit'])->name('subsection.edit');
+    Route::PUT('/courses/subsection/update/{id}', [CourseController::class, 'update'])->name('subsection.update');
     Route::get('/attendance', [StudentController::class, 'attendance'])->name('pages.attendance');
     Route::get('/students_dash', [StudentController::class, 'students_dash'])->name('pages.students_dash');
     Route::get('/certificates', [StudentController::class, 'certificates'])->name('pages.certificates');
     Route::get('/students/edit/{id}', [StudentController::class, 'edit'])->name('students.edit');
     Route::put('/students/update/{id}', [StudentController::class, 'update'])->name('students.update');
     Route::post('/students/approve/{id}', [StudentController::class, 'approve'])->name('students.approve');
+    Route::post('/Students/store', [StudentController::class, 'store'])->name('students.store');
 });
 
 //Update User Details

@@ -28,7 +28,7 @@
 
                     <ul class="nav nav-pills product-view-nav justify-content-end mt-3 mt-sm-0">
                         <li class="nav-item">
-                            <a class="nav-link active" href="http://127.0.0.1:8000/users/create"><i
+                            <a class="nav-link active" href="{{route('students.create')}}"><i
                                     class="bx bx-plus align-middle"></i></a>
                         </li>
                     </ul>

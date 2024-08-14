@@ -73,19 +73,6 @@
                             <p class="text-muted mb-0">Since {{ $course->start_date }}</p>
                         </div>
 
-                        <ul class="list-unstyled mt-4">
-                            @foreach ($course->subsections as $subsection)
-                                <li>
-                                    <div class="d-flex">
-                                        <i class="bx bx-phone text-primary fs-4"></i>
-                                        <div class="ms-3">
-                                            <h6 class="fs-14 mb-2">{{ $subsection->name }}</h6>
-                                            <p class="text-muted fs-14 mb-0">{{ $subsection->description }}</p>
-                                        </div>
-                                    </div>
-                                </li>
-                            @endforeach
-                        </ul>
                         <div class="mt-4">
                             <a href="#!" class="btn btn-soft-primary btn-hover w-100 rounded"><i
                                     class="mdi mdi-eye"></i> View all</a>
@@ -113,6 +100,19 @@
                         <h5 class="fw-semibold mb-3">Instructor Experience:</h5>
                         <ul class="vstack gap-3">
                             <li>{{ $course->instructor_experience }}</li>
+                        </ul>
+                        <hr>
+                        <ul class="list-unstyled mt-4">
+                            @foreach ($course->subsections as $subsection)
+                                <li>
+                                    <div class="d-flex"> 
+                                        <div class="ms-3">
+                                            <h6 class="fs-14 mb-2">{{ $subsection->name }}</h6>
+                                            <p class="text-muted fs-14 mb-0">{{ $subsection->description }}</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            @endforeach
                         </ul>
 
                         <div class="mt-4">
