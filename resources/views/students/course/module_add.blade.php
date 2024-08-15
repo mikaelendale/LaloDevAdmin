@@ -17,113 +17,103 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
+
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-6">
-                            <h4 class="card-title">Course Information</h4>
-
-                            <form>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <div class="mb-3">
-                                            <label for="productname">Sub section Name</label>
-                                            <input id="productname" name="name" type="text" class="form-control"
-                                                value="{{ old('name', $subsection->name) }}">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="manufacturerbrand">Detail</label>
-                                            <input id="manufacturerbrand" name="category" type="text"
-                                                class="form-control" value="{{ old('category', $subsection->detail) }}">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="manufacturerbrand">Order</label>
-                                            <input id="manufacturerbrand" name="order" type="text" class="form-control"
-                                                value="{{ old('order', $subsection->order) }}">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="productdesc">Product Description</label>
-                                            <textarea class="form-control" id="productdesc" rows="5"
-                                                value="{{ old('description', $subsection->description) }}"></textarea>
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <blockquote class="blockquote font-size-14 mb-0">
-                                                        <p>{{ $subsection->description }}</p>
-                                                        </footer>
-                                                    </blockquote>
-                                                </div>
-                                            </div>
-                                            <p></p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="d-flex flex-wrap gap-2">
-                                    <button type="submit" class="btn btn-primary waves-effect waves-light">Save
-                                        Changes</button>
-                                    <button type="button"
-                                        class="btn btn-secondary waves-effect waves-light">Cancel</button>
-                                </div>
-                            </form>
-
-                            <form>
-                                <div class="row">
-                                    <div class="col-sm-12"><br>
-                                        <hr>
-                                        <div class="mb-3">
-                                            <label for="productname">Sub section Name</label>
-                                            <input id="productname" name="name" type="text" class="form-control"
-                                                value="{{ old('name', $subsection->name) }}">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="manufacturerbrand">Detail</label>
-                                            <input id="manufacturerbrand" name="category" type="text"
-                                                class="form-control" value="{{ old('category', $subsection->detail) }}">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="manufacturerbrand">Order</label>
-                                            <input id="manufacturerbrand" name="order" type="text" class="form-control"
-                                                value="{{ old('order', $subsection->order) }}">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="productdesc">Product Description</label>
-                                            <textarea class="form-control" id="productdesc" rows="5"
-                                                value="{{ old('description', $subsection->description) }}"></textarea>
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <blockquote class="blockquote font-size-14 mb-0">
-                                                        <p>{{ $subsection->description }}</p>
-                                                        </footer>
-                                                    </blockquote>
-                                                </div>
-                                            </div>
-                                            <p></p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="d-flex flex-wrap gap-2">
-                                    <button type="submit" class="btn btn-primary waves-effect waves-light">Save
-                                        Changes</button>
-                                    <button type="button"
-                                        class="btn btn-secondary waves-effect waves-light">Cancel</button>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="col-md-6">
-                            <h4 class="card-title">Course Module preview</h4>
-                            <div class="card">
-                                <div class="card-body bg-light">
-                                    <!-- 16:9 aspect ratio -->
-                                    <div class="ratio ratio-16x9">
-                                        <iframe src="https://www.youtube.com/embed/1y_kfWUCFDQ" title="YouTube video"
-                                            allowfullscreen=""></iframe>
-                                    </div>
-
-                                </div><!-- end card-body -->
-                            </div>
-                        </div>
+                        <h4 class="card-title">{{ $subsection->name }} Course Module preview</h4>
+                        <p>{{ $subsection->detail }}</p>
                     </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body">
 
+                                    <h4 class="card-title">Example</h4>
+                                    <p class="card-title-desc">This is an experimental awesome solution for responsive
+                                        tables with complex
+                                        data.</p>
+
+                                    <div class="table-rep-plugin">
+                                        <div class="table-responsive mb-0" data-pattern="priority-columns">
+                                            <table id="tech-companies-1" class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Module</th>
+                                                        <th data-priority="1">order</th>
+                                                        <th data-priority="3">Trade Time</th>
+                                                        <th data-priority="1">Change</th>
+                                                        <th data-priority="3">Prev Close</th>
+                                                        <th data-priority="3">Open</th>
+                                                        <th data-priority="6">Bid</th>
+                                                        <th data-priority="6">Ask</th>
+                                                        <th data-priority="6">1y Target Est</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th>GOOG <span class="co-name">Google Inc.</span></th>
+                                                        <td>597.74</td>
+                                                        <td>12:12PM</td>
+                                                        <td>14.81 (2.54%)</td>
+                                                        <td>582.93</td>
+                                                        <td>597.95</td>
+                                                        <td>597.73 x 100</td>
+                                                        <td>597.91 x 300</td>
+                                                        <td>731.10</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                    <!-- Scrollable modal button -->
+                    <button type="button" class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal"
+                        data-bs-target="#exampleModalScrollable">Add New Module</button>
+
+                    <!-- Scrollable modal -->
+                    <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalScrollableTitle">Add New Module</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <!-- Form for adding a new module -->
+                                    <form action="{{ route('module.store', $subsection->id) }}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="subsection_id" value="{{ $subsection->id }}">
+
+                                        <div class="mb-3">
+                                            <label for="moduleName" class="form-label">Module Name</label>
+                                            <input type="text" class="form-control" id="moduleName" name="name"
+                                                required>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="moduleDescription" class="form-label">Module
+                                                Description</label>
+                                            <textarea class="form-control" id="moduleDescription" name="description" rows="3" required></textarea>
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-light"
+                                                data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Save Module</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                    </div><!-- /.modal -->
                 </div>
             </div>
         </div>

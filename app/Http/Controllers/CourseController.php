@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CourseModule;
 use App\Models\Courses;
 use App\Models\Subsection;
 use Illuminate\Http\Request;
@@ -172,12 +173,12 @@ class CourseController extends Controller
             ->with('success', 'Student updated successfully.');
     }
     public function destroy($id)
-{
-    $subsection = Subsection::findOrFail($id);
-    $subsection->delete();
+    {
+        $subsection = Subsection::findOrFail($id);
+        $subsection->delete();
 
-    return redirect()->back()->with('success', 'Subsection deleted successfully.');
-}
+        return redirect()->back()->with('success', 'Subsection deleted successfully.');
+    }
 
     //subsection create
     public function sub_create($id)
@@ -220,5 +221,41 @@ class CourseController extends Controller
         return redirect()->route('courses.edit', ['id' => $validated['course_id']])
             ->with('success', 'Subsection created successfully.');
     }
+    //course module create
+    public function module($id)
+{
+    // Retrieve the subsection by its ID
+    $subsection = Subsection::findOrFail($id);
+
+    // Retrieve the modules associated with the subsection
+    $modules = $subsection->courseModules;
+
+    // Return the view with the data
+    return view('students.course.module_add', compact('subsection', 'modules'));
+}
+public function module_store(Request $request)
+{
+    $validated = $request->validate([
+        'subsection_id' => 'required|exists:subsections,id',
+        'name' => 'required|string|max:255',
+        'description' => 'required|string',
+        'video_url' => 'required|string',
+        'order' => 'required|integer',
+    ]);
+
+    // Create the new module
+    CourseModule::create([
+        'subsection_id' => $validated['subsection_id'],
+        'name' => $validated['name'],
+        'description' => $validated['description'],
+        'video_url' => $validated['video_url'],
+        'order' => $validated['order'],
+    ]);
+
+    // Redirect back to the modules view with success message
+    return redirect()->route('modules.view', $validated['subsection_id'])
+                     ->with('success', 'Module added successfully!');
+}
+
 
 }

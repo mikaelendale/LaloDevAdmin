@@ -127,6 +127,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/courses/subsection/create/{id}', [CourseController::class, 'sub_create'])->name('subsection.create');
     Route::post('/courses/subsection/create', [CourseController::class, 'sub_store'])->name('subsection.store');
     Route::get('/courses/subsection/module/{id}', [CourseController::class, 'module'])->name('subsection.module');
+    Route::post('/courses/subsection/module/store/{id}', [CourseController::class, 'module_store'])->name('module.store');
     Route::get('/attendance', [StudentController::class, 'attendance'])->name('pages.attendance');
     Route::get('/students_dash', [StudentController::class, 'students_dash'])->name('pages.students_dash');
     Route::get('/certificates', [StudentController::class, 'certificates'])->name('pages.certificates');
