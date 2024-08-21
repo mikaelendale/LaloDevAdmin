@@ -236,7 +236,7 @@ class CourseController extends Controller
 public function module_store(Request $request)
 {
     $validated = $request->validate([
-        'subsection_id' => 'required|exists:subsection,id',
+        'subsection_id' => 'required|exists:subsections,id',
         'name' => 'required|string|max:255',
         'description' => 'required|string',
         'video_url' => 'required|string',
