@@ -224,23 +224,24 @@ class CourseController extends Controller
     //course module create
     public function module($id)
     {
-        // Retrieve the subsection by its ID
-        $subsection = Subsection::findOrFail($id);
-        $modules = Subsection::with('courseModules');
-        // Retrieve the modules associated with the subsection
-        $modules = $subsection->courseModules;
+        // Retrieve the single module by its ID
+        $module = CourseModule::findOrFail($id);
+        $subsection = $module->subsection; // Assuming a `subsection` relationship exists on `CourseModule`
 
-        // Return the view with the data
-        return view('students.course.module_edit', compact('subsection', 'modules'));
+        return view('students.course.module_edit', compact('module', 'subsection'));
     }
+
     //course module store
     public function moduleadd($id)
     {
         // Retrieve the subsection by its ID
-        $subsection = Subsection::findOrFail($id);
+        $subsection = Subsection::with('courseModules')->findOrFail($id);
+
+// Since courseModules is a relationship, you can access it directly from $subsection
+        $module = $subsection->courseModules;
 
         // Create a new course module
-        return view('students.course.module_add', compact('subsection'));
+        return view('students.course.module_add', compact('subsection', 'module'));
     }
     public function module_add(Request $request)
     {

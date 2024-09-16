@@ -28,31 +28,28 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title mb-4">fill the Form</h4>
-
-                                    <form method="POST"
-                                        action="{{ route('module.store', $subsection->id)}}">
+                                    <form method="POST" action="{{ route('module.store', $module->id) }}">
                                         @csrf
-                                            @method('PUT') <!-- Use PUT for update -->
+                                        @method('PUT') <!-- Use PUT for update -->
 
                                         <!-- Name Field -->
                                         <div class="mb-3">
                                             <label for="name" class="form-label">Module Name</label>
                                             <input type="text" class="form-control" id="name" name="name"
-                                                value="{{ $modules ? $modules->name : old('name') }}"
-                                                placeholder="Enter Module Name">
+                                                value="{{ old('name', $module->name) }}">
                                         </div>
 
                                         <!-- Description Field -->
                                         <div class="mb-3">
                                             <label for="description" class="form-label">Description</label>
-                                            <textarea class="form-control" id="description" name="description" placeholder="Enter Module Description">{{ $module ? $module->description : old('description') }}</textarea>
+                                            <textarea class="form-control" id="description" name="description" placeholder="Enter Module Description">{{ old('description', $module->description) }}</textarea>
                                         </div>
 
                                         <!-- Video URL Field -->
                                         <div class="mb-3">
                                             <label for="video_url" class="form-label">Video URL</label>
                                             <input type="text" class="form-control" id="video_url" name="video_url"
-                                                value="{{ $module ? $module->video_url : old('video_url') }}"
+                                                value="{{ old('video_url', $module->video_url) }}"
                                                 placeholder="Enter Video URL">
                                         </div>
 
@@ -60,14 +57,11 @@
                                         <div class="mb-3">
                                             <label for="order" class="form-label">Order</label>
                                             <input type="number" class="form-control" id="order" name="order"
-                                                value="{{ $module ? $module->order : old('order') }}"
-                                                placeholder="Enter Module Order">
+                                                value="{{ old('order', $module->order) }}" placeholder="Enter Module Order">
                                         </div>
 
                                         <div class="text-end">
-                                            <button type="submit"
-                                                class="btn btn-primary w-md">{{ $module ? 'Update' : 'Create' }}
-                                                Module</button>
+                                            <button type="submit" class="btn btn-primary w-md">Update Module</button>
                                         </div>
                                     </form>
 
