@@ -226,7 +226,7 @@ class CourseController extends Controller
     {
         // Retrieve the subsection by its ID
         $subsection = Subsection::findOrFail($id);
-
+        $modules = Subsection::with('courseModules');
         // Retrieve the modules associated with the subsection
         $modules = $subsection->courseModules;
 

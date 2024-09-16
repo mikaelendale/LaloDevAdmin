@@ -29,94 +29,48 @@
                                 <div class="card-body">
                                     <h4 class="card-title mb-4">fill the Form</h4>
 
-                                    <form method="POST" action="{{route('module.add',  $subsection->id) }}">
+                                    <form method="POST"
+                                        action="{{ route('module.store', $subsection->id)}}">
+                                        @csrf
+                                            @method('PUT') <!-- Use PUT for update -->
 
-                                        <input type="hidden" name="_token"
-                                            value="s4dYFwuHgOtPEcEL8aua8JBH3B7mtuq2FAZ2BDOc" autocomplete="off"> <input
-                                            type="hidden" name="_method" value="PUT">
-                                        <!-- Use PUT for update requests -->
-
-                                        <div class="row mb-3">
-                                            <div class="col-md-6">
-                                                <label for="name" class="form-label">Name</label>
-                                                <input type="text" class="form-control" id="name" name="name"
-                                                    value="Mikael" placeholder="Enter Your Name">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label for="email" class="form-label">Email</label>
-                                                <input type="email" class="form-control" id="email" name="email"
-                                                    value="user@gmail.com" placeholder="Enter Your Email ID">
-                                            </div>
+                                        <!-- Name Field -->
+                                        <div class="mb-3">
+                                            <label for="name" class="form-label">Module Name</label>
+                                            <input type="text" class="form-control" id="name" name="name"
+                                                value="{{ $modules ? $modules->name : old('name') }}"
+                                                placeholder="Enter Module Name">
                                         </div>
 
-                                        <div class="row mb-3">
-                                            <div class="col-md-6">
-                                                <label for="phone_no" class="form-label">Phone Number</label>
-                                                <input type="text" class="form-control" id="phone_no" name="phone_no"
-                                                    value="0931133242" placeholder="Enter Your Phone Number">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label for="class_attended" class="form-label">Class Attended</label>
-                                                <input type="text" class="form-control" id="class_attended"
-                                                    name="class_attended" value="beginner"
-                                                    placeholder="Enter Class Attended">
-                                            </div>
+                                        <!-- Description Field -->
+                                        <div class="mb-3">
+                                            <label for="description" class="form-label">Description</label>
+                                            <textarea class="form-control" id="description" name="description" placeholder="Enter Module Description">{{ $module ? $module->description : old('description') }}</textarea>
                                         </div>
 
-                                        <div class="row mb-3">
-                                            <div class="col-md-6">
-                                                <label for="status" class="form-label">Status</label>
-                                                <select name="status" class="form-select">
-                                                    <option value="pending">Pending
-                                                    </option>
-                                                    <option value="approved" selected="">Approved
-                                                    </option>
-                                                    <option value="oncheck">On Check
-                                                    </option>
-                                                </select>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label for="payment" class="form-label">Payment</label>
-                                                <input type="text" class="form-control" id="payment" name="payment"
-                                                    value="1" placeholder="Enter Payment Status">
-                                            </div>
+                                        <!-- Video URL Field -->
+                                        <div class="mb-3">
+                                            <label for="video_url" class="form-label">Video URL</label>
+                                            <input type="text" class="form-control" id="video_url" name="video_url"
+                                                value="{{ $module ? $module->video_url : old('video_url') }}"
+                                                placeholder="Enter Video URL">
                                         </div>
 
-                                        <div class="row mb-3">
-                                            <div class="col-md-6">
-                                                <label for="telegram_username" class="form-label">Telegram Username</label>
-                                                <input type="text" class="form-control" id="telegram_username"
-                                                    name="telegram_username" value="https://t.me/yourusername"
-                                                    placeholder="Enter Telegram Username">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label for="gender" class="form-label">Gender</label>
-                                                <select name="gender" class="form-select">
-                                                    <option value="male" selected="">male
-                                                    </option>
-                                                    <option value="female">female
-                                                    </option>
-                                                </select>
-                                            </div>
+                                        <!-- Order Field -->
+                                        <div class="mb-3">
+                                            <label for="order" class="form-label">Order</label>
+                                            <input type="number" class="form-control" id="order" name="order"
+                                                value="{{ $module ? $module->order : old('order') }}"
+                                                placeholder="Enter Module Order">
                                         </div>
 
-                                        <div class="row mb-3">
-                                            <div class="col-md-6">
-                                                <label for="address" class="form-label">Address</label>
-                                                <input type="text" class="form-control" id="address" name="address"
-                                                    value="Addis Ababa" placeholder="Enter Address">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label for="dob" class="form-label">Valid from</label>
-                                                <input type="date" class="form-control" id="dob"
-                                                    name="time_duration">
-                                            </div>
-                                        </div>
-
-                                        <div>
-                                            <button type="submit" class="btn btn-primary w-md">Update</button>
+                                        <div class="text-end">
+                                            <button type="submit"
+                                                class="btn btn-primary w-md">{{ $module ? 'Update' : 'Create' }}
+                                                Module</button>
                                         </div>
                                     </form>
+
                                 </div>
                                 <!-- end card body -->
                             </div>
