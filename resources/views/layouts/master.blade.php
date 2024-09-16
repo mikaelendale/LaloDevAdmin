@@ -8,13 +8,13 @@
     <!-- App favicon -->
     @include('layouts.head-css')
     <!-- Monaco Editor -->
-<script src="https://unpkg.com/monaco-editor@latest/min/vs/loader.js"></script>
-
+    @yield('script')
 </head>
 
 @section('body')
+
     <body data-sidebar="dark" data-layout-mode="dak" data-bs-theme="dark">
-@show
+    @show
     <!-- Begin page -->
     <div id="layout-wrapper">
         @include('layouts.topbar')

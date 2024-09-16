@@ -222,13 +222,15 @@ class CourseController extends Controller
             ->with('success', 'Subsection created successfully.');
     }
     //course module create
-    public function module($id)
+    public function module($subsectionId)
     {
-        // Retrieve the single module by its ID
-        $module = CourseModule::findOrFail($id);
-        $subsection = $module->subsection; // Assuming a `subsection` relationship exists on `CourseModule`
+        // Retrieve the subsection by its ID
+        $subsection = Subsection::findOrFail($subsectionId);
 
-        return view('students.course.module_edit', compact('module', 'subsection'));
+        // Retrieve all course modules associated with the subsection
+        $module = CourseModule::where('subsection_id', $subsectionId)->get();
+
+        return view('students.course.module_edit', compact('subsection', 'module'));
     }
 
     //course module store
@@ -266,11 +268,11 @@ class CourseController extends Controller
         return redirect()->route('modules.view', $validated['subsection_id'])
             ->with('success', 'Module added successfully!');
     }
-    public function module_store(Request $request, $subsection_id)
+    public function module_store(Request $request, $subsectionId)
     {
         // Validate the request data
         $validated = $request->validate([
-            'subsection_id' => 'required|exists:subsections,id',
+            'module_id' => 'required|exists:course_modules,id', // Ensure the module exists
             'name' => 'required|string|max:255',
             'description' => 'required|string',
             'video_url' => 'required|string',
@@ -278,11 +280,12 @@ class CourseController extends Controller
         ]);
 
         // Find the existing module by its ID
-        $module = CourseModule::findOrFail($module_id);
+        $module = CourseModule::where('subsection_id', $subsectionId)
+            ->where('id', $validated['module_id'])
+            ->firstOrFail();
 
         // Update the module with the validated data
         $module->update([
-            'subsection_id' => $validated['subsection_id'],
             'name' => $validated['name'],
             'description' => $validated['description'],
             'video_url' => $validated['video_url'],
@@ -292,4 +295,5 @@ class CourseController extends Controller
         // Redirect back to the modules view with success message
         return redirect()->back()->with('success', 'Module updated successfully!');
     }
+
 }

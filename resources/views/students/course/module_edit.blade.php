@@ -3,7 +3,9 @@
 @section('title')
     course
 @endsection
-
+@section('script')
+    <script src="https://unpkg.com/monaco-editor@latest/min/vs/loader.js"></script>
+@endsection
 @section('content')
     @component('components.breadcrumb')
         @slot('li_1')
@@ -46,7 +48,7 @@
                                     <form method="POST" action="{{ route('module.store', $subsection->id) }}">
                                         @csrf
                                         @method('PUT') <!-- Use PUT for update -->
-
+                                        <input type="hidden" name="module_id" value="{{ $module->id }}">
                                         <!-- Name Field -->
                                         <div class="mb-3">
                                             <label for="name" class="form-label">Module Name</label>
