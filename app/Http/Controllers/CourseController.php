@@ -266,7 +266,7 @@ class CourseController extends Controller
         return redirect()->route('modules.view', $validated['subsection_id'])
             ->with('success', 'Module added successfully!');
     }
-    public function module_store(Request $request, $module_id)
+    public function module_store(Request $request, $subsection_id)
     {
         // Validate the request data
         $validated = $request->validate([
@@ -290,8 +290,6 @@ class CourseController extends Controller
         ]);
 
         // Redirect back to the modules view with success message
-        return redirect()->route('modules.view', $validated['subsection_id'])
-            ->with('success', 'Module updated successfully!');
+        return redirect()->back()->with('success', 'Module updated successfully!');
     }
-
 }

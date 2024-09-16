@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- App favicon -->
     @include('layouts.head-css')
+    <!-- Monaco Editor -->
+<script src="https://unpkg.com/monaco-editor@latest/min/vs/loader.js"></script>
+
 </head>
 
 @section('body')

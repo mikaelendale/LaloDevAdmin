@@ -14,8 +14,23 @@
         @endslot
     @endcomponent
 
+
     <div class="row">
         <div class="col-12">
+            @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <div class="card">
 
                 <div class="card-body">
@@ -24,11 +39,11 @@
                     </div>
                     <hr>
                     <div class="row">
-                        <div class="col-xl-6">
+                        <div class="col-xl-12">
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title mb-4">fill the Form</h4>
-                                    <form method="POST" action="{{ route('module.store', $module->id) }}">
+                                    <form method="POST" action="{{ route('module.store', $subsection->id) }}">
                                         @csrf
                                         @method('PUT') <!-- Use PUT for update -->
 
@@ -42,7 +57,8 @@
                                         <!-- Description Field -->
                                         <div class="mb-3">
                                             <label for="description" class="form-label">Description</label>
-                                            <textarea class="form-control" id="description" name="description" placeholder="Enter Module Description">{{ old('description', $module->description) }}</textarea>
+                                            <div id="monaco-editor" style="height: 400px;"></div>
+                                            <textarea id="description" name="description" style="display:none;">{{ old('description', $module->description) }}</textarea>
                                         </div>
 
                                         <!-- Video URL Field -->
@@ -76,4 +92,38 @@
             </div>
         </div>
     </div>
+    <script>
+        require.config({
+            paths: {
+                'vs': 'https://unpkg.com/monaco-editor@latest/min/vs'
+            }
+        });
+        require(['vs/editor/editor.main'], function() {
+            // Initialize Monaco Editor for description
+            var descriptionEditor = monaco.editor.create(document.getElementById('monaco-editor'), {
+                value: document.getElementById('description').value,
+                language: 'markdown', // Adjust the language as needed
+                theme: 'vs-dark', // You can choose different themes
+                automaticLayout: true
+            });
+
+            // Update hidden textarea with editor content
+            descriptionEditor.onDidChangeModelContent(function() {
+                document.getElementById('description').value = descriptionEditor.getValue();
+            });
+
+            // Initialize Monaco Editor for code
+            var codeEditor = monaco.editor.create(document.getElementById('monaco-editor-code'), {
+                value: document.getElementById('code').value,
+                language: 'javascript', // Adjust the language as needed
+                theme: 'vs-dark', // You can choose different themes
+                automaticLayout: true
+            });
+
+            // Update hidden textarea with editor content
+            codeEditor.onDidChangeModelContent(function() {
+                document.getElementById('code').value = codeEditor.getValue();
+            });
+        });
+    </script>
 @endsection

@@ -22,14 +22,14 @@
                 </div>
             @endif
             @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <div class="card">
                 <div class="card-body">
 
@@ -80,7 +80,7 @@
                                 <!-- Submit Button -->
                                 <div class="d-flex flex-wrap gap-2">
                                     <button type="submit" class="btn btn-success waves-effect waves-light">Add</button>
-                                    <a href="{{route('courses.edit', $course->id)}}"
+                                    <a href="{{ route('courses.edit', $course->id) }}"
                                         class="btn btn-secondary waves-effect waves-light">Cancel</a>
                                 </div>
                             </form>
