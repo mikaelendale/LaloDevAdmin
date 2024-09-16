@@ -234,15 +234,15 @@ class CourseController extends Controller
         return view('students.course.module_edit', compact('subsection', 'modules'));
     }
     //course module store
-    public function moduleadd($id){
+    public function moduleadd($id)
+    {
         // Retrieve the subsection by its ID
         $subsection = Subsection::findOrFail($id);
-
 
         // Create a new course module
         return view('students.course.module_add', compact('subsection'));
     }
-    public function module_store(Request $request)
+    public function module_add(Request $request)
     {
         $validated = $request->validate([
             'subsection_id' => 'required|exists:subsections,id',
@@ -265,4 +265,32 @@ class CourseController extends Controller
         return redirect()->route('modules.view', $validated['subsection_id'])
             ->with('success', 'Module added successfully!');
     }
+    public function module_store(Request $request, $module_id)
+    {
+        // Validate the request data
+        $validated = $request->validate([
+            'subsection_id' => 'required|exists:subsections,id',
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'video_url' => 'required|string',
+            'order' => 'required|integer',
+        ]);
+
+        // Find the existing module by its ID
+        $module = CourseModule::findOrFail($module_id);
+
+        // Update the module with the validated data
+        $module->update([
+            'subsection_id' => $validated['subsection_id'],
+            'name' => $validated['name'],
+            'description' => $validated['description'],
+            'video_url' => $validated['video_url'],
+            'order' => $validated['order'],
+        ]);
+
+        // Redirect back to the modules view with success message
+        return redirect()->route('modules.view', $validated['subsection_id'])
+            ->with('success', 'Module updated successfully!');
+    }
+
 }
