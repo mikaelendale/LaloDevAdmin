@@ -81,7 +81,7 @@ class StudentController extends Controller
         $student = Students::findOrFail($id);
         $student->update($request->only([
             'name', 'email', 'phone_no', 'class_attended', 'status',
-            'payment', 'telegram_username', 'gender', 'address', 'dob',
+            'payment', 'telegram_username', 'gender', 'address', 'time_duration',
         ]));
 
         \Log::info('Student updated:', $student->toArray());

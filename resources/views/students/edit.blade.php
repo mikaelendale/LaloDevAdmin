@@ -100,8 +100,8 @@
                                     value="{{ old('address', $student->address) }}" placeholder="Enter Address">
                             </div>
                             <div class="col-md-6">
-                                <label for="dob" class="form-label">Date of Birth</label>
-                                <input type="date" class="form-control" id="dob" name="dob">
+                                <label for="dob" class="form-label">Valid from</label>
+                                <input type="date" class="form-control" id="dob" name="time_duration">
                             </div>
                         </div>
 

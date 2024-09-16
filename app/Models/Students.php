@@ -26,6 +26,7 @@ class Students extends Authenticatable
         'address',
         'dob',
         'notification',
+        'time_duration',
     ];
 
     protected $hidden = [
