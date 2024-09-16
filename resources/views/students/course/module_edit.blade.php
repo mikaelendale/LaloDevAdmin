@@ -48,7 +48,6 @@
                                     <form method="POST" action="{{ route('module.store', $subsection->id) }}">
                                         @csrf
                                         @method('PUT') <!-- Use PUT for update -->
-                                        <input type="hidden" name="module_id" value="{{ $module->id }}">
                                         <!-- Name Field -->
                                         <div class="mb-3">
                                             <label for="name" class="form-label">Module Name</label>
