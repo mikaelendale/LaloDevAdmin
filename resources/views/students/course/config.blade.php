@@ -13,20 +13,20 @@
             config
         @endslot
     @endcomponent
-     @if (session('success'))
-                <div class="alert alert-success">
-                    {{ session('success') }}
-                </div>
-            @endif
-            @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <div class="row">
         <div class="col-12">
             <div class="card">
@@ -84,7 +84,8 @@
 
                         <div class="d-flex flex-wrap gap-2">
                             <button type="submit" class="btn btn-primary waves-effect waves-light">Save Changes</button>
-                            <a href="{{route('courses.manage')}}" class="btn btn-secondary waves-effect waves-light">Cancel</a>
+                            <a href="{{ route('courses.manage') }}"
+                                class="btn btn-secondary waves-effect waves-light">Cancel</a>
                         </div>
                     </form>
 
@@ -134,12 +135,21 @@
                                                 <a href="{{ route('subsection.edit', $subsections->id) }}"
                                                     class="btn btn-soft-primary">
                                                     Edit Details
-                                                </a> 
-                                                <a href="{{ route('subsection.module', $subsections->id) }}"
-                                                    class="btn btn-soft-primary">
-                                                    Edit Modules
-                                                </a> 
-                                              </td>  <td>
+                                                </a>
+                                                    @if ($subsections->courseModules->isEmpty())
+                                                        <a href="{{ route('subsection.moduleadd', $subsections->id) }}"
+                                                            class="btn btn-soft-success">
+                                                            Add Module
+                                                        </a>
+                                                    @else
+                                                        <a href="{{ route('subsection.module', $subsections->id) }}"
+                                                            class="btn btn-soft-primary">
+                                                            Edit Modules
+                                                        </a>
+                                                    @endif
+
+                                            </td>
+                                            <td>
                                                 <!-- Delete Button -->
                                                 <form action="{{ route('subsection.destroy', $subsections->id) }}"
                                                     method="POST"

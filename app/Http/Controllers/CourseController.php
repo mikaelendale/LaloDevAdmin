@@ -231,7 +231,16 @@ class CourseController extends Controller
         $modules = $subsection->courseModules;
 
         // Return the view with the data
-        return view('students.course.module_add', compact('subsection', 'modules'));
+        return view('students.course.module_edit', compact('subsection', 'modules'));
+    }
+    //course module store
+    public function moduleadd($id){
+        // Retrieve the subsection by its ID
+        $subsection = Subsection::findOrFail($id);
+
+
+        // Create a new course module
+        return view('students.course.module_add', compact('subsection'));
     }
     public function module_store(Request $request)
     {
