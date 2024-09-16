@@ -53,7 +53,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="productdesc">Section Description</label>
-                            <textarea class="form-control" id="description" rows="5"
+                            <textarea class="form-control ]" name="description" id="description" rows="5"
                                 value="{{ old('description', $subsection->description) }}"></textarea>
                             <div class="card">
                                 <div class="card-body">
