@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Answer;
+use App\Models\Courses;
 use App\Models\Question;
 use App\Models\Quiz;
 use Illuminate\Http\Request;
@@ -10,7 +11,7 @@ class QuizController extends Controller
 {
     public function create()
     {
-        $courses = Course::all();
+        $courses = Courses::all();
         return view('quizzes.create', compact('courses'));
     }
 
@@ -18,7 +19,6 @@ class QuizController extends Controller
     {
         $request->validate([
             'course_id' => 'required|exists:courses,id',
-            'name' => 'required|string|max:255',
             'time_alloted' => 'required|integer',
             'score' => 'required|integer',
             'questions.*.question' => 'required|string',
@@ -29,7 +29,6 @@ class QuizController extends Controller
 
         $quiz = Quiz::create([
             'course_id' => $request->course_id,
-            'name' => $request->name,
             'time_alloted' => $request->time_alloted,
             'score' => $request->score,
         ]);
@@ -53,4 +52,3 @@ class QuizController extends Controller
         return redirect()->route('quizzes.index')->with('success', 'Quiz created successfully!');
     }
 }
-

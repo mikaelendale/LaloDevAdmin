@@ -157,19 +157,31 @@
                                 </div>
                             </div>
                             <div class="card">
-                                @if ($courses->quizzes->isEmpty())
-                                    <p>No quizzes available for this course.</p>
-                                @else
-                                    <ul class="list-group">
-                                        @foreach ($courses->quizzes as $quiz)
-                                            <li class="list-group-item">
-                                                <a href="{{ route('quizzes.show', $quiz->id) }}">{{ $quiz->name }}</a>
-                                                <span class="badge badge-secondary">Total Score: {{ $quiz->score }}</span>
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                @endif
+                                <div class="card-body">
+                                    <div class="row">
+                                        <h4 class="card-title mb-4"> <a class="btn btn-soft-success"
+                                                href="{{ route('quizzes.create') }}"><i
+                                                    class="bx bx-plus align-middle"></i>&nbsp; Add Quiz to Course</a>
+                                        </h4>
+                                    </div>
+                                    <!-- Show Quizzes -->
+                                    @if ($courses->quizzes->isEmpty())
+                                        <p>No quizzes available for this course.</p>
+                                    @else
+                                        <ul class="list-group">
+                                            @foreach ($courses->quizzes as $quiz)
+                                                <li class="list-group-item">
+                                                    <a
+                                                        href="{{ route('quizzes.show', $quiz->id) }}">{{ $quiz->name }}</a>
+                                                    <span class="badge badge-secondary">Total Score:
+                                                        {{ $quiz->score }}</span>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    @endif
+                                </div>
                             </div>
+
 
                         </div>
                     </div>

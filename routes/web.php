@@ -161,8 +161,10 @@ Route::get('courses/{course}/badges/{badge}/edit', [BadgeController::class, 'edi
     Route::delete('/badges/{badge}', [BadgeController::class, 'destroy'])->name('badge.destroy');
     Route::put('courses/{course}/badges/{badge}', [BadgeController::class, 'update'])->name('badge.update');
 
-Route::resource('quizzes', QuizController::class);
-Route::post('quizzes/{quiz}/submit', [QuizController::class, 'submit'])->name('quizzes.submit');
+Route::get('quizzes/create', [QuizController::class, 'create'])->name('quizzes.create');
+Route::post('quizzes', [QuizController::class, 'store'])->name('quizzes.store');
+Route::get('quizzes/{quiz}', [QuizController::class, 'show'])->name('quizzes.show');
+Route::get('quizzes', [QuizController::class, 'index'])->name('quizzes.index');
 
 
 });
