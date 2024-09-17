@@ -17,11 +17,16 @@
     @endcomponent
     <div class="row">
         <div class="col-lg-12">
+            @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
             <div class="card">
                 <div class="card-body">
                     <div class="row">
                         <h4 class="card-title mb-4"> <a class="btn btn-success"
-                                href="{{route('subsection.moduleadd', $subsection->id)}}"><i
+                                href="{{ route('subsection.moduleadd', $subsection->id) }}"><i
                                     class="bx bx-plus align-middle"></i>&nbsp; Add Subsection module</a>
                         </h4>
                     </div>
@@ -43,16 +48,18 @@
                                     @foreach ($module as $mod)
                                         <tr>
                                             <td>
-                                               {{ $mod->id }}
+                                                {{ $mod->id }}
                                             </td>
                                             <td>
-                                                <a href="javascript: void(0);" class="text-body fw-bold">{{ $mod->name }}</a>
+                                                <a href="javascript: void(0);"
+                                                    class="text-body fw-bold">{{ $mod->name }}</a>
                                             </td>
                                             <td>
-                                                <a href="{{route('subsection.module', $mod->id)}}"
+                                                <a href="{{ route('subsection.module', ['subsectionId' => $subsection->id, 'moduleId' => $mod->id]) }}"
                                                     class="btn btn-soft-primary">
-                                                    edit Modules
+                                                    Edit Module
                                                 </a>
+
                                             </td>
                                             <td>
                                                 <!-- Delete Button -->

@@ -32,7 +32,7 @@
                                     <div class="container">
                                         <h2>Add New Module to Subsection: {{ $subsection->name }}</h2>
 
-                                        <form method="POST" action="{{ route('module.create') }}">
+                                        <form method="POST" action="{{ route('module.add') }}">
                                             @csrf
 
                                             <!-- Hidden input to pass the subsection ID -->
