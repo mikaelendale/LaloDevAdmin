@@ -41,6 +41,14 @@ class StudentController extends Controller
         return redirect()->route('students.index')->with('success', 'student created successfully.');
     }
 
+    
+    //deleting func
+    public function delete($id){
+        $student = Students::find($id);
+        $student->delete();
+
+        return redirect()->route('students.index')->with('success', 'Student deleted successfully.');
+    }
     //approving func
     // StudentController.php
 

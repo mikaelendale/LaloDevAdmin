@@ -107,6 +107,7 @@
 
                         <div>
                             <button type="submit" class="btn btn-primary w-md">Update</button>
+                            <a href="{{route('students.delete', $student->id)}}" class="btn btn-danger w-md">Delete</a>
                         </div>
                     </form>
                 </div>

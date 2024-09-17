@@ -74,10 +74,6 @@
                                         </option>
                                     </select>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="productdesc">Product Description</label>
-                                    <textarea class="form-control" id="productdesc" rows="5" placeholder="Product Description"></textarea>
-                                </div>
 
                             </div>
                         </div>

@@ -7,10 +7,10 @@
 @section('content')
     @component('components.breadcrumb')
         @slot('li_1')
-            Subsection
+            Subsection module
         @endslot
         @slot('title')
-            Edit
+            add
         @endslot
     @endcomponent
 
