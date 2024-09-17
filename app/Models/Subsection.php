@@ -29,7 +29,7 @@ class Subsection extends Model
     }
     public function courseModules()
     {
-        return $this->hasMany(CourseModule::class);
+        return $this->hasMany(CourseModule::class, 'subsection_id');
     }
     public function comments()
     {

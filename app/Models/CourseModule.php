@@ -17,8 +17,7 @@ class CourseModule extends Model
         'order',
     ];
     public function subsection()
-{
-    return $this->belongsTo(Subsection::class);
-}
-
+    {
+        return $this->belongsTo(Subsection::class, 'subsection_id');
+    }
 }

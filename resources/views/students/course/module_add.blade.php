@@ -29,48 +29,47 @@
                             <div class="card">
                                 <div class="card-body">
 
-                                    <h4 class="card-title">Example</h4>
-                                    <p class="card-title-desc">This is an experimental awesome solution for responsive
-                                        tables with complex
-                                        data.</p>
+                                    <div class="container">
+                                        <h2>Add New Module to Subsection: {{ $subsection->name }}</h2>
 
-                                    <div class="table-rep-plugin">
-                                        <div class="table-responsive mb-0" data-pattern="priority-columns">
-                                            <table id="tech-companies-1" class="table table-striped">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Module</th>
-                                                        <th data-priority="1">order</th>
-                                                        <th data-priority="3">Trade Time</th>
-                                                        <th data-priority="1">Change</th>
-                                                        <th data-priority="3">Prev Close</th>
-                                                        <th data-priority="3">Open</th>
-                                                        <th data-priority="6">Bid</th>
-                                                        <th data-priority="6">Ask</th>
-                                                        <th data-priority="6">1y Target Est</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th>GOOG <span class="co-name">Google Inc.</span></th>
-                                                        <td>597.74</td>
-                                                        <td>12:12PM</td>
-                                                        <td>14.81 (2.54%)</td>
-                                                        <td>582.93</td>
-                                                        <td>597.95</td>
-                                                        <td>597.73 x 100</td>
-                                                        <td>597.91 x 300</td>
-                                                        <td>731.10</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
+                                        <form method="POST" action="{{ route('module.create') }}">
+                                            @csrf
 
+                                            <!-- Hidden input to pass the subsection ID -->
+                                            <input type="hidden" name="subsection_id" value="{{ $subsection->id }}">
+
+                                            <!-- Module Name -->
+                                            <div class="mb-3">
+                                                <label for="name" class="form-label">Module Name</label>
+                                                <input type="text" class="form-control" id="name" name="name" required>
+                                            </div>
+
+                                            <!-- Module Description -->
+                                            <div class="mb-3">
+                                                <label for="description" class="form-label">Description</label>
+                                                <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
+                                            </div>
+
+                                            <!-- Video URL -->
+                                            <div class="mb-3">
+                                                <label for="video_url" class="form-label">Video URL</label>
+                                                <input type="url" class="form-control" id="video_url" name="video_url"
+                                                    value="{{ old('video_url') }}" required>
+                                            </div>
+
+                                            <!-- Order -->
+                                            <div class="mb-3">
+                                                <label for="order" class="form-label">Order</label>
+                                                <input type="number" class="form-control" id="order" name="order"
+                                                    value="{{ old('order') }}" required>
+                                            </div>
+
+                                            <button type="submit" class="btn btn-primary">Add Module</button>
+                                        </form>
                                     </div>
-
                                 </div>
                             </div>
-                        </div> 
+                        </div>
                     </div>
                     <!-- Scrollable modal button -->
                     <button type="button" class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal"

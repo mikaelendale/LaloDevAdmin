@@ -136,18 +136,10 @@
                                                     class="btn btn-soft-primary">
                                                     Edit Details
                                                 </a>
-                                                    @if ($subsections->courseModules->isEmpty())
-                                                        <a href="{{ route('subsection.moduleadd', $subsections->id) }}"
-                                                            class="btn btn-soft-success">
-                                                            Add Module
-                                                        </a>
-                                                    @else
-                                                        <a href="{{ route('subsection.module', $subsections->id) }}"
-                                                            class="btn btn-soft-primary">
-                                                            Edit Modules
-                                                        </a>
-                                                    @endif
-
+                                                <a href="{{ route('subsection.view', $subsections->id) }}"
+                                                    class="btn btn-soft-primary">
+                                                    View Modules
+                                                </a>
                                             </td>
                                             <td>
                                                 <!-- Delete Button -->

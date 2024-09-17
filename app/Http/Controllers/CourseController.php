@@ -221,6 +221,19 @@ class CourseController extends Controller
         return redirect()->route('courses.edit', ['id' => $validated['course_id']])
             ->with('success', 'Subsection created successfully.');
     }
+    public function viewModule($id)
+    {
+        // Retrieve the subsection by its ID
+        $subsection = Subsection::findOrFail($id);
+
+        // Retrieve all course modules associated with the subsection, ordered by 'order' field
+        $module = CourseModule::where('subsection_id', $id)
+            ->orderBy('order', 'asc') // Order by 'order' field in ascending order
+            ->get();
+
+        return view('students.course.module_view', compact('subsection', 'module'));
+    }
+
     //course module create
     public function module($subsectionId)
     {
@@ -237,14 +250,12 @@ class CourseController extends Controller
     public function moduleadd($id)
     {
         // Retrieve the subsection by its ID
-        $subsection = Subsection::with('courseModules')->findOrFail($id);
+        $subsection = Subsection::findOrFail($id);
 
-// Since courseModules is a relationship, you can access it directly from $subsection
-        $module = $subsection->courseModules;
-
-        // Create a new course module
-        return view('students.course.module_add', compact('subsection', 'module'));
+        // Return the view to create a new course module, passing only the subsection
+        return view('students.course.module_add', compact('subsection'));
     }
+
     public function module_add(Request $request)
     {
         $validated = $request->validate([
