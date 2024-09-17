@@ -40,6 +40,8 @@ public function badges()
     {
         return $this->belongsToMany(Badge::class, 'course_badges', 'course_id', 'badge_id');
     }
-
-
+public function quizzes()
+    {
+        return $this->hasMany(Quiz::class, 'course_id');
+    }
 }

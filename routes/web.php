@@ -140,6 +140,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/students/approve/{id}', [StudentController::class, 'approve'])->name('students.approve');
     Route::get('/students/delete/{id}', [StudentController::class, 'delete'])->name('students.delete');
     Route::post('/Students/store', [StudentController::class, 'store'])->name('students.store');
+    //badge and quizz
+    Route::get('/quiz/{id}', [CourseController::class, 'quizshow'])->name('quiz.view');
+
 });
 
 //Update User Details
