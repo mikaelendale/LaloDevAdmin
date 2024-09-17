@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\BadgeController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\EventsController;
@@ -36,7 +37,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/events', [PagesController::class, 'events'])->name('pages.events');
     Route::get('/tasks', [PagesController::class, 'tasks'])->name('pages.tasks');
     Route::get('/telegram_managment', [PagesController::class, 'telegram_managment'])->name('pages.telegram_managment');
-    
+
 });
 //editing function for users
 Route::middleware(['auth'])->group(function () {
@@ -130,8 +131,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/courses/subsection/module/{subsectionId}/{moduleId}', [CourseController::class, 'module'])->name('subsection.module');
     Route::get('/courses/subsection/module/{subsectionId}', [CourseController::class, 'addModule'])->name('subsection.addModule');
     Route::put('/courses/subsection/module/store/{id}', [CourseController::class, 'module_store'])->name('module.store');
-    Route::post('/courses/module/add', [CourseController::class,'module_add'])->name('module.add');
-    Route::get('/courses/module/{subsectionId}/{moduleId}', [CourseController::class,'module_delete'])->name('module.delete');
+    Route::post('/courses/module/add', [CourseController::class, 'module_add'])->name('module.add');
+    Route::get('/courses/module/{subsectionId}/{moduleId}', [CourseController::class, 'module_delete'])->name('module.delete');
     Route::get('/attendance', [StudentController::class, 'attendance'])->name('pages.attendance');
     Route::get('/students_dash', [StudentController::class, 'students_dash'])->name('pages.students_dash');
     Route::get('/certificates', [StudentController::class, 'certificates'])->name('pages.certificates');
@@ -142,6 +143,22 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/Students/store', [StudentController::class, 'store'])->name('students.store');
     //badge and quizz
     Route::get('/quiz/{id}', [CourseController::class, 'quizshow'])->name('quiz.view');
+
+// Route for showing the form to create a new badge for a course
+    Route::get('/courses/{course}/badges/create', [BadgeController::class, 'createBadge'])->name('badge.create');
+
+// Route for storing the newly created badge
+    Route::post('/courses/{course}/badges', [BadgeController::class, 'store'])->name('badge.store');
+
+// Route for editing a badge
+Route::get('courses/{course}/badges/{badge}/edit', [BadgeController::class, 'edit'])->name('badge.edit');
+
+// Route for updating the badge
+    Route::put('/badges/{badge}', [BadgeController::class, 'update'])->name('badge.update');
+
+// Route for deleting a badge
+    Route::delete('/badges/{badge}', [BadgeController::class, 'destroy'])->name('badge.destroy');
+    Route::put('courses/{course}/badges/{badge}', [BadgeController::class, 'update'])->name('badge.update');
 
 });
 

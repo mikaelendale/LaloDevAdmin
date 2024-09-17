@@ -117,6 +117,7 @@
                         <li><a href="/learn_dashboard" key="t-learn_dashboard">Dashboard </a></li>
                         <li><a href="/courses" key="t-docs">Courses </a></li>
                         <li><a href="/courses/manage" key="t-classes">Manage courses </a></li>
+                        <li><a href="/badges" key="t-classes">badges </a></li>
                         <li><a href="/attendance" key="t-attendance">Attendance</a></li>
                         <li><a href="/students_dash" key="t-students_dash"> Students dash </a></li>
                         <li><a href="/certificates " key="t-certificates "> Certificates </a></li>

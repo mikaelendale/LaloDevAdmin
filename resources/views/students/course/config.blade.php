@@ -122,9 +122,7 @@
                                                             </td>
                                                             <td>{{ $badge->description }}</td>
                                                             <td>
-                                                                <img src="{{ asset('path_to_icons/' . $badge->icon) }}"
-                                                                    alt="{{ $badge->name }}"
-                                                                    style="width: 30px; height: 30px;">
+                                                               {{ $badge->icon}}
                                                             </td>
                                                             <td>
                                                                 <span class="badge"
@@ -134,7 +132,7 @@
                                                             </td>
                                                             <td>
                                                                 <!-- Edit and Delete Buttons -->
-                                                                <a href="{{ route('badge.edit', $badge->id) }}"
+                                                                <a href="{{ route('badge.edit', ['course' => $courses->id, 'badge' => $badge->id]) }}"
                                                                     class="btn btn-soft-primary">
                                                                     Edit
                                                                 </a>
