@@ -13,6 +13,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserpageController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\QuizController;
 
 /*
 |--------------------------------------------------------------------------
@@ -159,6 +160,10 @@ Route::get('courses/{course}/badges/{badge}/edit', [BadgeController::class, 'edi
 // Route for deleting a badge
     Route::delete('/badges/{badge}', [BadgeController::class, 'destroy'])->name('badge.destroy');
     Route::put('courses/{course}/badges/{badge}', [BadgeController::class, 'update'])->name('badge.update');
+
+Route::resource('quizzes', QuizController::class);
+Route::post('quizzes/{quiz}/submit', [QuizController::class, 'submit'])->name('quizzes.submit');
+
 
 });
 

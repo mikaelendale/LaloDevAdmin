@@ -122,7 +122,7 @@
                                                             </td>
                                                             <td>{{ $badge->description }}</td>
                                                             <td>
-                                                               {{ $badge->icon}}
+                                                                {{ $badge->icon }}
                                                             </td>
                                                             <td>
                                                                 <span class="badge"
@@ -156,7 +156,20 @@
                                     <!-- end table-responsive -->
                                 </div>
                             </div>
-
+                            <div class="card">
+                                @if ($courses->quizzes->isEmpty())
+                                    <p>No quizzes available for this course.</p>
+                                @else
+                                    <ul class="list-group">
+                                        @foreach ($courses->quizzes as $quiz)
+                                            <li class="list-group-item">
+                                                <a href="{{ route('quizzes.show', $quiz->id) }}">{{ $quiz->name }}</a>
+                                                <span class="badge badge-secondary">Total Score: {{ $quiz->score }}</span>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                @endif
+                            </div>
 
                         </div>
                     </div>
