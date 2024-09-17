@@ -151,6 +151,8 @@ class CourseController extends Controller
             'subsections.courseModules' => function ($query) {
                 $query->orderBy('order', 'asc'); // Order course modules by the 'order' field
             },
+            'subsections.badges', // Load badges associated with subsections
+            'quizzes.questions.answers', // Load quizzes, their questions, and answers for each question
         ])->find($id);
 
         // Check if the course exists
@@ -160,6 +162,7 @@ class CourseController extends Controller
             return redirect()->route('students.manage.course.config')->with('error', 'Course not found');
         }
     }
+
     public function update(Request $request, $id)
     {
 
@@ -308,6 +311,21 @@ class CourseController extends Controller
         // Redirect back to the modules view with a success message
         return redirect()->route('subsection.module', ['subsectionId' => $subsectionId, 'moduleId' => $module->id])
             ->with('success', 'Module updated successfully!');
+    }
+
+    //course module delete
+    public function module_delete($subsectionId, $moduleId)
+    {
+        // Find the specific module by subsection ID and module ID
+        $module = CourseModule::where('subsection_id', $subsectionId)
+            ->where('id', $moduleId)
+            ->firstOrFail();
+
+        // Delete the module
+        $module->delete();
+
+        // Redirect back to the modules view with a success message
+        return redirect()->back()->with('success', 'Module deleted successfully!');
     }
 
 }

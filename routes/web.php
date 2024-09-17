@@ -128,9 +128,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/courses/subsection/view/{id}', [CourseController::class, 'viewModule'])->name('subsection.view');
     Route::post('/courses/subsection/create', [CourseController::class, 'sub_store'])->name('subsection.store');
     Route::get('/courses/subsection/module/{subsectionId}/{moduleId}', [CourseController::class, 'module'])->name('subsection.module');
-    Route::get('/courses/subsection/module/add/{subsectionId}', [CourseController::class, 'addModule'])->name('subsection.addModule');
+    Route::get('/courses/subsection/module/{subsectionId}', [CourseController::class, 'addModule'])->name('subsection.addModule');
     Route::put('/courses/subsection/module/store/{id}', [CourseController::class, 'module_store'])->name('module.store');
     Route::post('/courses/module/add', [CourseController::class,'module_add'])->name('module.add');
+    Route::get('/courses/module/{subsectionId}/{moduleId}', [CourseController::class,'module_delete'])->name('module.delete');
     Route::get('/attendance', [StudentController::class, 'attendance'])->name('pages.attendance');
     Route::get('/students_dash', [StudentController::class, 'students_dash'])->name('pages.students_dash');
     Route::get('/certificates', [StudentController::class, 'certificates'])->name('pages.certificates');
