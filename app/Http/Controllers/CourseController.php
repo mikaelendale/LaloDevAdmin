@@ -249,10 +249,10 @@ class CourseController extends Controller
     }
 
     //course module store
-    public function moduleadd($id)
+    public function addModule($subsectionId)
     {
         // Retrieve the subsection by its ID
-        $subsection = Subsection::findOrFail($id);
+        $subsection = Subsection::findOrFail($subsectionId);
 
         // Return the view to create a new course module, passing only the subsection
         return view('students.course.module_add', compact('subsection'));

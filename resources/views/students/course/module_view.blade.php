@@ -4,7 +4,6 @@
     course
 @endsection
 @section('script')
-    <script src="https://unpkg.com/monaco-editor@latest/min/vs/loader.js"></script>
 @endsection
 @section('content')
     @component('components.breadcrumb')
@@ -25,9 +24,9 @@
             <div class="card">
                 <div class="card-body">
                     <div class="row">
-                        <h4 class="card-title mb-4"> <a class="btn btn-success"
-                                href="{{ route('subsection.moduleadd', $subsection->id) }}"><i
-                                    class="bx bx-plus align-middle"></i>&nbsp; Add Subsection module</a>
+                        <h4 class="card-title mb-4"> 
+                            <a class="btn btn-success" href="{{ route('subsection.addModule', ['subsectionId' => $subsection->id]) }}">
+                                <i class="bx bx-plus align-middle"></i>&nbsp; Add Subsection module</a>
                         </h4>
                     </div>
 
@@ -63,10 +62,8 @@
                                             </td>
                                             <td>
                                                 <!-- Delete Button -->
-                                                <form action="http://localhost:8080/courses/subsection/3" method="POST"
+                                                <form action="" method="POST"
                                                     onsubmit="return confirm('Are you sure you want to delete this subsection?');">
-                                                    <input type="hidden" name="_token"
-                                                        value="SwD7XhzR60g8Wu8Eqrln8vsD3R7paLApUvP179et" autocomplete="off">
                                                     <input type="hidden" name="_method" value="DELETE"> <button
                                                         type="submit" class="btn btn-soft-danger">
                                                         Delete

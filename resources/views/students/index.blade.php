@@ -39,7 +39,7 @@
             <div class="card">
                 <div class="card-body">
 
-                    <h4 class="card-title">List of Developers under Lalo Dev</h4>
+                    <h4 class="card-title">List of students under Lalo Dev</h4>
                     <p class="card-title-desc">
                     </p>
 
