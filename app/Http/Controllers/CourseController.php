@@ -151,8 +151,8 @@ class CourseController extends Controller
             'subsections.courseModules' => function ($query) {
                 $query->orderBy('order', 'asc'); // Order course modules by the 'order' field
             },
-            'subsections.badges', // Load badges associated with subsections
             'quizzes.questions.answers', // Load quizzes, their questions, and answers for each question
+            'badges', // Load badges associated with the course
         ])->find($id);
 
         // Check if the course exists

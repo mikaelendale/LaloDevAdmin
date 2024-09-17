@@ -36,7 +36,10 @@ public function enrollments()
 {
     return $this->hasMany(Enrollment::class, 'course_id');
 }
-
+public function badges()
+    {
+        return $this->belongsToMany(Badge::class, 'course_badges', 'course_id', 'badge_id');
+    }
 
 
 }
